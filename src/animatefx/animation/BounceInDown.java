@@ -22,7 +22,7 @@ public class BounceInDown {
     private void BounceInDown(Node node) {
 
         double startY = -node.localToScene(0, 0).getY() - node.getBoundsInParent().getHeight();
-        Timeline timeline = new Timeline(
+        Timeline t = new Timeline(
 
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(node.opacityProperty(), 0),
@@ -42,7 +42,7 @@ public class BounceInDown {
                         new KeyValue(node.translateYProperty(), 0)
                 )
         );
-        timeline.play();
+        t.play();
 
     }
 }
