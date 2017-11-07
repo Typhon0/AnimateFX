@@ -78,3 +78,17 @@ fabric.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+\.idea/
+
+src/sample/
+
+*\.iml
+.idea/
+*.iml
+*.iws
+.gradle
+/gradle.properties
+.project
+.classpath
+.settings/
