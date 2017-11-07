@@ -62,7 +62,7 @@ fabric.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.ear
 *.zip
@@ -86,9 +86,8 @@ src/sample/
 *\.iml
 .idea/
 *.iml
-*.iws
+
 .gradle
-/gradle.properties
 .project
 .classpath
 .settings/
