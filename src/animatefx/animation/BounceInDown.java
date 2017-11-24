@@ -1,5 +1,6 @@
 package animatefx.animation;
 
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -21,25 +22,24 @@ public class BounceInDown {
 
     private void BounceInDown(Node node) {
 
-        double startY = -node.localToScene(0, 0).getY() - node.getBoundsInParent().getHeight();
         Timeline t = new Timeline(
 
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.opacityProperty(), 0),
-                        new KeyValue(node.translateYProperty(), startY)
-                ),
-                new KeyFrame(Duration.millis(300),
-                        new KeyValue(node.opacityProperty(), 1),
-                        new KeyValue(node.translateYProperty(), 25)
-                ),
-                new KeyFrame(Duration.millis(400),
-                        new KeyValue(node.translateYProperty(), -10)
+                        new KeyValue(node.opacityProperty(), 0, Interpolator.SPLINE(0.215,0.610,0.355,1.000)),
+                        new KeyValue(node.translateYProperty(), -3000,Interpolator.SPLINE(0.215,0.610,0.355,1.000))
                 ),
                 new KeyFrame(Duration.millis(600),
-                        new KeyValue(node.translateYProperty(), 5)
+                        new KeyValue(node.opacityProperty(), 1,Interpolator.SPLINE(0.215,0.610,0.355,1.000)),
+                        new KeyValue(node.translateYProperty(), 25,Interpolator.SPLINE(0.215,0.610,0.355,1.000))
                 ),
-                new KeyFrame(Duration.millis(800),
-                        new KeyValue(node.translateYProperty(), 0)
+                new KeyFrame(Duration.millis(750),
+                        new KeyValue(node.translateYProperty(), -10,Interpolator.SPLINE(0.215,0.610,0.355,1.000))
+                ),
+                new KeyFrame(Duration.millis(900),
+                        new KeyValue(node.translateYProperty(), 5,Interpolator.SPLINE(0.215,0.610,0.355,1.000))
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.translateYProperty(), 0,Interpolator.SPLINE(0.215,0.610,0.355,1.000))
                 )
         );
         t.play();

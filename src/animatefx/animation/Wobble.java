@@ -23,32 +23,32 @@ public class Wobble {
     private void Wobble(Node node){
         Timeline t = new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.translateXProperty(), 0),
-                        new KeyValue(node.rotateProperty(), -0)
+                        new KeyValue(node.translateXProperty(), 0,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), -0,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(100),
-                        new KeyValue(node.translateXProperty(), -0.25*node.getBoundsInParent().getWidth()),
-                        new KeyValue(node.rotateProperty(), -5)
+                new KeyFrame(Duration.millis(150),
+                        new KeyValue(node.translateXProperty(), -0.25*node.getBoundsInParent().getWidth(),AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), -5,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(250),
-                        new KeyValue(node.translateXProperty(), 0.2*node.getBoundsInParent().getWidth()),
-                        new KeyValue(node.rotateProperty(), 3)
+                new KeyFrame(Duration.millis(300),
+                        new KeyValue(node.translateXProperty(), 0.2*node.getBoundsInParent().getWidth(),AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), 3,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(400),
-                        new KeyValue(node.translateXProperty(), -0.15*node.getBoundsInParent().getWidth()),
-                        new KeyValue(node.rotateProperty(), -3)
+                new KeyFrame(Duration.millis(450),
+                        new KeyValue(node.translateXProperty(), -0.15*node.getBoundsInParent().getWidth(),AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), -3,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(550),
-                        new KeyValue(node.translateXProperty(), 0.1*node.getBoundsInParent().getWidth()),
-                        new KeyValue(node.rotateProperty(), 2)
+                new KeyFrame(Duration.millis(600),
+                        new KeyValue(node.translateXProperty(), 0.1*node.getBoundsInParent().getWidth(),AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), 2,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(700),
-                        new KeyValue(node.translateXProperty(), -0.05*node.getBoundsInParent().getWidth()),
-                        new KeyValue(node.rotateProperty(), -1)
+                new KeyFrame(Duration.millis(750),
+                        new KeyValue(node.translateXProperty(), -0.05*node.getBoundsInParent().getWidth(),AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), -1,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(950),
-                        new KeyValue(node.translateXProperty(), 0),
-                        new KeyValue(node.rotateProperty(), 0)
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.translateXProperty(), 0,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.rotateProperty(), 0,AnimateFXInterpolator.EASE)
                 )
 
         );

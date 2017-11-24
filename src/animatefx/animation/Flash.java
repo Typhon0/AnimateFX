@@ -27,19 +27,19 @@ public class Flash {
                 new Timeline(
 
                         new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 1)
+                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(250),
-                                new KeyValue(node.opacityProperty(), 0)
+                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(500),
-                                new KeyValue(node.opacityProperty(), 1)
+                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(750),
-                                new KeyValue(node.opacityProperty(), 0)
+                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1)
+                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
                         )
 
                 );

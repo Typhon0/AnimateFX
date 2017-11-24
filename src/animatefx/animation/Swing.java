@@ -30,22 +30,22 @@ public class Swing {
         Timeline t =
                 new Timeline(
                         new KeyFrame(Duration.millis(0),
-                                new KeyValue(rotation.angleProperty(), 0)
+                                new KeyValue(rotation.angleProperty(), 0,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(200),
-                                new KeyValue(rotation.angleProperty(), 15)
+                                new KeyValue(rotation.angleProperty(), 15,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(400),
-                                new KeyValue(rotation.angleProperty(), -10)
+                                new KeyValue(rotation.angleProperty(), -10,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(600),
-                                new KeyValue(rotation.angleProperty(), 5)
+                                new KeyValue(rotation.angleProperty(), 5,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(800),
-                                new KeyValue(rotation.angleProperty(), -5)
+                                new KeyValue(rotation.angleProperty(), -5,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(rotation.angleProperty(), 0)
+                                new KeyValue(rotation.angleProperty(), 0,AnimateFXInterpolator.EASE)
                         )
                 );
         t.play();

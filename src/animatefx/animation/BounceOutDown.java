@@ -25,17 +25,17 @@ public class BounceOutDown {
         double endY = node.getScene().getHeight() - node.localToScene(0, 0).getY();
         Timeline t = new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.opacityProperty(), 1)
+                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(200),
-                        new KeyValue(node.translateYProperty(), 10)
+                        new KeyValue(node.translateYProperty(), 10,AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(400),
-                        new KeyValue(node.opacityProperty(), 1),
-                        new KeyValue(node.translateYProperty(), -20)
+                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.translateYProperty(), -20,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(550),
-                        new KeyValue(node.opacityProperty(), 0),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE),
                         new KeyValue(node.translateYProperty(), endY)
                 )
 

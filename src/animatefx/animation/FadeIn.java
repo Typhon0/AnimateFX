@@ -17,10 +17,10 @@ public class FadeIn {
         Timeline t =
                 new Timeline(
                         new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 0)
+                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
                         ),
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1)
+                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
                         )
 
                 );

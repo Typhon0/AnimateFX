@@ -26,22 +26,22 @@ public class BounceOut {
         Timeline t = new Timeline(
 
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.scaleXProperty(), 1),
-                        new KeyValue(node.scaleYProperty(), 1)
+                        new KeyValue(node.scaleXProperty(), 1,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleYProperty(), 1,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(150),
-                        new KeyValue(node.scaleXProperty(), 0.9),
-                        new KeyValue(node.scaleYProperty(), 0.9)
+                new KeyFrame(Duration.millis(200),
+                        new KeyValue(node.scaleXProperty(), 0.9,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleYProperty(), 0.9,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(375),
-                        new KeyValue(node.opacityProperty(), 1),
-                        new KeyValue(node.scaleXProperty(), 1.1),
-                        new KeyValue(node.scaleYProperty(), 1.1)
+                new KeyFrame(Duration.millis(550),
+                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleXProperty(), 1.1,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleYProperty(), 1.1,AnimateFXInterpolator.EASE)
                 ),
-                new KeyFrame(Duration.millis(750),
-                        new KeyValue(node.opacityProperty(), 0),
-                        new KeyValue(node.scaleXProperty(), 0.3),
-                        new KeyValue(node.scaleYProperty(), 0.3)
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleXProperty(), 0.3,AnimateFXInterpolator.EASE),
+                        new KeyValue(node.scaleYProperty(), 0.3,AnimateFXInterpolator.EASE)
                 )
 
         );
