@@ -10,28 +10,26 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier
  */
-public class FadeInDown {
+public class SlideInDown {
 
     /**
      * Create new FadeInDown
      *
      * @param node The node to affect
      */
-    public FadeInDown(Node node) {
-        FadeInDown(node);
+    public SlideInDown(Node node) {
+        SlideInDown(node);
     }
 
-    private void FadeInDown(Node node) {
+    private void SlideInDown(Node node) {
 
         Timeline t =
                 new Timeline(
                         new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(),0,AnimateFXInterpolator.EASE),
                                 new KeyValue(node.translateYProperty(), -node.getBoundsInParent().getHeight(),AnimateFXInterpolator.EASE)
                         ),
 
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(),1, AnimateFXInterpolator.EASE),
                                 new KeyValue(node.translateYProperty(), 0,AnimateFXInterpolator.EASE)
                         )
 
