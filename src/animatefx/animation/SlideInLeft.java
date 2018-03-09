@@ -10,27 +10,29 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier
  */
-public class SlideInDown {
+public class SlideInLeft {
 
     /**
-     * Create new SlideInDown
+     * Create new SlideInLeft
      *
      * @param node The node to affect
      */
-    public SlideInDown(Node node) {
-        SlideInDown(node);
+    public SlideInLeft(Node node) {
+        SlideInLeft(node);
     }
 
-    private void SlideInDown(Node node) {
+    private void SlideInLeft(Node node) {
 
         Timeline t =
                 new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.translateYProperty(), -node.getBoundsInParent().getHeight(),AnimateFXInterpolator.EASE)
-                        ),
 
+                        new KeyFrame(Duration.millis(0),
+                                new KeyValue(node.translateXProperty(), -node.getBoundsInParent().getWidth(), AnimateFXInterpolator.EASE)
+
+                        ),
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.translateYProperty(), 0,AnimateFXInterpolator.EASE)
+                                new KeyValue(node.translateXProperty(), 0, AnimateFXInterpolator.EASE)
+
                         )
 
                 );
