@@ -1,6 +1,23 @@
 language: java
+install: true
 before_install:
  - chmod +x gradlew
 jdk:
   - oraclejdk8
+  - oraclejdk10
+  - openjdk8
+  - openjdk10
 
+stages:
+  - name: build
+  - name: snapshot
+    if: branch = master
+  - name: release
+    if: branch = release
+
+jobs:
+  include:
+    - stage: build
+      script: ./gradlew build
+    - stage: release
+      script: ./gradlew bintrayUpload -x test -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$TRAVIS_BUILD_NUMBER
