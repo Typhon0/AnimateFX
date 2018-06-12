@@ -13,9 +13,9 @@ Features:
 * Play/Stop animation (In progress)
 * More to come
 
-#How to use
+# How to use
 
-###Gradle
+### Gradle
 ```
 dependencies {
 
@@ -23,7 +23,7 @@ compile 'animatefx:animatefx:1.0.0'
 
 }
 ```
-###Maven
+### Maven
 
 ```
 <dependency>
@@ -34,9 +34,9 @@ compile 'animatefx:animatefx:1.0.0'
 </dependency>
 ```
 
-#Quick start
+# Quick start
 
-####Basic
+#### Basic
 
 ```
 Text text = new Text();
