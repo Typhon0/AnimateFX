@@ -1,7 +1,9 @@
-version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
+plugins {
+    id "com.jfrog.bintray" version "1.8.1"
+    id "maven-publish"
+    id "java"
+}
+version '1.0.0'
 sourceCompatibility = 1.8
 
 repositories {
@@ -17,4 +19,85 @@ sourceSets {
 }
 
 dependencies {
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+javadoc.failOnError = false
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "typhon0"
+            name "Loïc Sculier"
+            email "sculier.loic@gmail.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/typhon0/animatefx"
+    }
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+            groupId 'org.animatefx'
+            artifactId 'AnimateFX'
+            version '1.0.0'
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'A library of ready-to-use animations for JavaFX')
+                root.appendNode('name', 'AnimateFX')
+                root.appendNode('url', 'https://github.com/typhon0/AnimateFX')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+bintray {
+    user = System.getProperty('bintray.user')
+    key = System.getProperty('bintray.key')
+    publications = ['mavenPublication']
+
+    pkg {
+        repo = 'AnimateFX'
+        name = 'animatefx'
+        userOrg = 'typhon0'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/typhon0/animatefx.git'
+        version {
+            name = '1.0.0'
+            desc = '1.0.0'
+            released  = new Date()
+        }
+    }
+
 }
