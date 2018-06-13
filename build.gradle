@@ -3,12 +3,13 @@ plugins {
     id "maven-publish"
     id "java"
 }
-version '1.0.0'
-sourceCompatibility = 1.8
 
 repositories {
     jcenter()
 }
+
+version = '1.0.0' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
+sourceCompatibility = 1.8
 
 sourceSets {
     main {
@@ -70,7 +71,7 @@ publishing {
             }
             groupId 'org.animatefx'
             artifactId 'AnimateFX'
-            version '1.0.0'
+            version project.version
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'A library of ready-to-use animations for JavaFX')
@@ -94,8 +95,8 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/typhon0/animatefx.git'
         version {
-            name = '1.0.0'
-            desc = '1.0.0'
+            name = project.version
+            desc = System.getProperty("build.number")
             released  = new Date()
         }
     }
