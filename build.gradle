@@ -8,7 +8,7 @@ repositories {
     jcenter()
 }
 
-version = '1.0.0' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
+version = '1.0.1' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
 sourceCompatibility = 1.8
 
 sourceSets {
