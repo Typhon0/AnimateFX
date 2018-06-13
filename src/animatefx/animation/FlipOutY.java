@@ -17,7 +17,7 @@ import static javafx.scene.transform.Rotate.Y_AXIS;
 public class FlipOutY {
 
     /**
-     * Create new FlipOutX
+     * Create new FlipOutY
      *
      * @param node The node to affect
      */
