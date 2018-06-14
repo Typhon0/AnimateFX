@@ -15,7 +15,7 @@ import static javafx.scene.transform.Rotate.X_AXIS;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class FlipInX {
+public class FlipInX extends AnimationFX {
 
     /**
      * Create new FlipInX
@@ -23,40 +23,47 @@ public class FlipInX {
      * @param node The node to affect
      */
     public FlipInX(Node node) {
-        FlipInX(node);
+        super(node);
     }
 
-    private void FlipInX(Node node) {
-        node.getScene().setCamera(new PerspectiveCamera());
-        node.setRotationAxis(X_AXIS);
-        Timeline t =
-                new Timeline(
-
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 0, Interpolator.EASE_IN),
-                                new KeyValue(node.rotateProperty(), -90, Interpolator.EASE_IN)
-
-                        ),
-                        new KeyFrame(Duration.millis(400),
-                                new KeyValue(node.rotateProperty(), 20, Interpolator.EASE_IN)
-
-                        ),
-                        new KeyFrame(Duration.millis(600),
-                                new KeyValue(node.rotateProperty(), -10, Interpolator.EASE_IN)
-
-                        ),
-                        new KeyFrame(Duration.millis(800),
-                                new KeyValue(node.rotateProperty(), 5, Interpolator.EASE_IN)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1, Interpolator.EASE_IN),
-                                new KeyValue(node.rotateProperty(), 0, Interpolator.EASE_IN)
-                        )
-
-                );
-        t.play();
-        t.setOnFinished(event -> node.getScene().setCamera(new ParallelCamera()));
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        getNode().getScene().setCamera(new PerspectiveCamera());
+        getNode().setRotationAxis(X_AXIS);
+        setTimeline(new Timeline(
+
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 0, Interpolator.EASE_IN),
+                        new KeyValue(getNode().rotateProperty(), -90, Interpolator.EASE_IN)
+
+                ),
+                new KeyFrame(Duration.millis(400),
+                        new KeyValue(getNode().rotateProperty(), 20, Interpolator.EASE_IN)
+
+                ),
+                new KeyFrame(Duration.millis(600),
+                        new KeyValue(getNode().rotateProperty(), -10, Interpolator.EASE_IN)
+
+                ),
+                new KeyFrame(Duration.millis(800),
+                        new KeyValue(getNode().rotateProperty(), 5, Interpolator.EASE_IN)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 1, Interpolator.EASE_IN),
+                        new KeyValue(getNode().rotateProperty(), 0, Interpolator.EASE_IN)
+                )
+
+        ));
+        getTimeline().setOnFinished(event -> getNode().getScene().setCamera(new ParallelCamera()));
+
+    }
+
 
 }
 

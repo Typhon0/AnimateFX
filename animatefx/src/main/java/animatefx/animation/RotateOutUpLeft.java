@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class RotateOutUpLeft {
+public class RotateOutUpLeft extends AnimationFX {
 
     /**
      * Create new RotateOutUpLeft
@@ -18,24 +18,30 @@ public class RotateOutUpLeft {
      * @param node The node to affect
      */
     public RotateOutUpLeft(Node node) {
-        RotateOutUpLeft(node);
+        super(node);
     }
 
-    private void RotateOutUpLeft(Node node) {
-        node.setRotationAxis(Rotate.Z_AXIS);
-        Rotate rotate = new Rotate(0, 0, node.getBoundsInLocal().getHeight());
-        node.getTransforms().add(rotate);
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(rotate.angleProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(rotate.angleProperty(), -45, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        getNode().setRotationAxis(Rotate.Z_AXIS);
+        Rotate rotate = new Rotate(0, 0, getNode().getBoundsInLocal().getHeight());
+        getNode().getTransforms().add(rotate);
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(rotate.angleProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(rotate.angleProperty(), -45, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                )
+        ));
+    }
+
 }

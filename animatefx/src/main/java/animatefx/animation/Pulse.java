@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier
  */
-public class Pulse {
+public class Pulse extends AnimationFX {
 
     /**
      * Create new Pulse
@@ -18,30 +18,34 @@ public class Pulse {
      * @param node The node to affect
      */
     public Pulse(Node node) {
-        Pulse(node);
+        super(node);
     }
 
-    private void Pulse(Node node) {
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.scaleXProperty(), 1,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 1,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 1,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(500),
-                                new KeyValue(node.scaleXProperty(), 1.05,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 1.05,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 1.05,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.scaleXProperty(), 1,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 1,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 1,AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        return null;
+    }
+
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(500),
+                        new KeyValue(getNode().scaleXProperty(), 1.05, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1.05, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 1.05, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 1, AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }
 

@@ -14,284 +14,274 @@ public class Controller {
     Text text;
 
 
-    public void initialize() {
-    }
-
 
     @FXML
     public void HandleClick(ActionEvent actionEvent) {
 
         Button button = (Button) actionEvent.getSource();
-        switch (button.getText()) {
-            /*Attention seekers**/
-            case "Bounce":
-                new Bounce(text);
-                break;
-            case "Flash":
-                new Flash(text);
-                break;
-            case "Pulse":
-                new Pulse(text);
-                break;
-            case "RubberBand":
-                new RubberBand(text);
-                break;
-            case "Shake":
-                new Shake(text);
-                break;
-            case "Swing":
-                new Swing(text);
-                break;
-            case "Tada":
-                new Tada(text);
-                break;
-            case "Wobble":
-                new Wobble(text);
-                break;
-            case "Jello":
-                new Jello(text);
-                break;
+        String s = button.getText();/*Attention seekers**/
+        if ("Bounce".equals(s)) {
+            new Bounce(text).play();
+
+        } else if ("Flash".equals(s)) {
+            new Flash(text).play();
+
+        } else if ("Pulse".equals(s)) {
+            new Pulse(text).play();
+
+        } else if ("RubberBand".equals(s)) {
+            new RubberBand(text).play();
+
+        } else if ("Shake".equals(s)) {
+            new Shake(text).play();
+
+        } else if ("Swing".equals(s)) {
+            new Swing(text).play();
+
+        } else if ("Tada".equals(s)) {
+            new Tada(text).play();
+
+        } else if ("Wobble".equals(s)) {
+            new Wobble(text).play();
+
+        } else if ("Jello".equals(s)) {
+            new Jello(text).play();
+
 
 
             /*Bounce Entrances**/
-            case "BounceIn":
-                new BounceIn(text);
-                break;
-            case "BounceInDown":
-                new BounceInDown(text);
-                break;
-            case "BounceInLeft":
-                new BounceInLeft(text);
-                break;
-            case "BounceInRight":
-                new BounceInRight(text);
-                break;
-            case "BounceInUp":
-                new BounceInUp(text);
-                break;
+        } else if ("BounceIn".equals(s)) {
+            new BounceIn(text).play();
+
+        } else if ("BounceInDown".equals(s)) {
+            new BounceInDown(text).play();
+
+        } else if ("BounceInLeft".equals(s)) {
+            new BounceInLeft(text).play();
+
+        } else if ("BounceInRight".equals(s)) {
+            new BounceInRight(text).play();
+
+        } else if ("BounceInUp".equals(s)) {
+            new BounceInUp(text).play();
+
 
 
             /*Bouncing exits**/
-            case "BounceOut":
-                new BounceOut(text);
-                break;
-            case "BounceOutDown":
-                new BounceOutDown(text);
-                break;
-            case "BounceOutLeft":
-                new BounceOutLeft(text);
-                break;
-            case "BounceOutRight":
-                new BounceOutRight(text);
-                break;
-            case "BounceOutUp":
-                new BounceOutUp(text);
-                break;
+        } else if ("BounceOut".equals(s)) {
+            new BounceOut(text).play();
+
+        } else if ("BounceOutDown".equals(s)) {
+            new BounceOutDown(text).play();
+
+        } else if ("BounceOutLeft".equals(s)) {
+            new BounceOutLeft(text).play();
+
+        } else if ("BounceOutRight".equals(s)) {
+            new BounceOutRight(text).play();
+
+        } else if ("BounceOutUp".equals(s)) {
+            new BounceOutUp(text).play();
+
 
 
             /*Fading entrances**/
-            case "FadeIn":
-                new FadeIn(text);
-                break;
-            case "FadeInDown":
-                new FadeInDown(text);
-                break;
-            case "FadeInDownBig":
-                new FadeInDownBig(text);
-                break;
-            case "FadeInLeft":
-                new FadeInLeft(text);
-                break;
-            case "FadeInLeftBig":
-                new FadeInLeftBig(text);
-                break;
-            case "FadeInRight":
-                new FadeInRight(text);
-                break;
-            case "FadeInRightBig":
-                new FadeInRightBig(text);
-                break;
-            case "FadeInUp":
-                new FadeInUp(text);
-                break;
-            case "FadeInUpBig":
-                new FadeInUpBig(text);
+        } else if ("FadeIn".equals(s)) {
+            new FadeIn(text).play();
+
+        } else if ("FadeInDown".equals(s)) {
+            new FadeInDown(text).play();
+
+        } else if ("FadeInDownBig".equals(s)) {
+            new FadeInDownBig(text).play();
+
+        } else if ("FadeInLeft".equals(s)) {
+            new FadeInLeft(text).play();
+
+        } else if ("FadeInLeftBig".equals(s)) {
+            new FadeInLeftBig(text).play();
+
+        } else if ("FadeInRight".equals(s)) {
+            new FadeInRight(text).play();
+
+        } else if ("FadeInRightBig".equals(s)) {
+            new FadeInRightBig(text).play();
+
+        } else if ("FadeInUp".equals(s)) {
+            new FadeInUp(text).play();
+
+        } else if ("FadeInUpBig".equals(s)) {
+            new FadeInUpBig(text).play();
 
 
-                /*Fading exits**/
-            case "FadeOut":
-                new FadeOut(text);
-                break;
-            case "FadeOutDown":
-                new FadeOutDown(text);
-                break;
-            case "FadeOutDownBig":
-                new FadeOutDownBig(text);
-                break;
-            case "FadeOutLeft":
-                new FadeOutLeft(text);
-                break;
-            case "FadeOutLeftBig":
-                new FadeOutLeftBig(text);
-                break;
-            case "FadeOutRight":
-                new FadeOutRight(text);
-                break;
-            case "FadeOutRightBig":
-                new FadeOutRightBig(text);
-                break;
-            case "FadeOutUp":
-                new FadeOutUp(text);
-                break;
-            case "FadeOutUpBig":
-                new FadeOutUpBig(text);
-                break;
+            /*Fading exits**/
+        } else if ("FadeOut".equals(s)) {
+            new FadeOut(text).play();
+
+        } else if ("FadeOutDown".equals(s)) {
+            new FadeOutDown(text).play();
+
+        } else if ("FadeOutDownBig".equals(s)) {
+            new FadeOutDownBig(text).play();
+
+        } else if ("FadeOutLeft".equals(s)) {
+            new FadeOutLeft(text).play();
+
+        } else if ("FadeOutLeftBig".equals(s)) {
+            new FadeOutLeftBig(text).play();
+
+        } else if ("FadeOutRight".equals(s)) {
+            new FadeOutRight(text).play();
+
+        } else if ("FadeOutRightBig".equals(s)) {
+            new FadeOutRightBig(text).play();
+
+        } else if ("FadeOutUp".equals(s)) {
+            new FadeOutUp(text).play();
+
+        } else if ("FadeOutUpBig".equals(s)) {
+            new FadeOutUpBig(text).play();
+
 
 
             /*Flipeprs**/
-            case "Flip":
-                new Flip(text);
-                break;
-            case "FlipInX":
-                new FlipInX(text);
-                break;
-            case "FlipInY":
-                new FlipInY(text);
-                break;
-            case "FlipOutX":
-                new FlipOutX(text);
-                break;
-            case "FlipOutY":
-                new FlipOutY(text);
-                break;
+        } else if ("Flip".equals(s)) {
+            new Flip(text).play();
+
+        } else if ("FlipInX".equals(s)) {
+            new FlipInX(text).play();
+
+        } else if ("FlipInY".equals(s)) {
+            new FlipInY(text).play();
+
+        } else if ("FlipOutX".equals(s)) {
+            new FlipOutX(text).play();
+
+        } else if ("FlipOutY".equals(s)) {
+            new FlipOutY(text).play();
+
 
             /*LightSpeed**/
-            case "LightSpeedIn":
-                new LightSpeedIn(text);
-                break;
-            case "LightSpeedOut":
-                new LightSpeedOut(text);
-                break;
+        } else if ("LightSpeedIn".equals(s)) {
+            new LightSpeedIn(text).play();
+
+        } else if ("LightSpeedOut".equals(s)) {
+            new LightSpeedOut(text).play();
+
 
 
             /*Rotating entrances**/
-            case "RotateIn":
-                new RotateIn(text);
-                break;
-            case "RotateInDownLeft":
-                new RotateInDownLeft(text);
-                break;
-            case "RotateInDownRight":
-                new RotateInDownRight(text);
-                break;
-            case "RotateInUpLeft":
-                new RotateInUpLeft(text);
-                break;
-            case "RotateInUpRight":
-                new RotateInUpRight(text);
-                break;
+        } else if ("RotateIn".equals(s)) {
+            new RotateIn(text).play();
+
+        } else if ("RotateInDownLeft".equals(s)) {
+            new RotateInDownLeft(text).play();
+
+        } else if ("RotateInDownRight".equals(s)) {
+            new RotateInDownRight(text).play();
+
+        } else if ("RotateInUpLeft".equals(s)) {
+            new RotateInUpLeft(text).play();
+
+        } else if ("RotateInUpRight".equals(s)) {
+            new RotateInUpRight(text).play();
+
 
             /*Rotating exits**/
-            case "RotateOut":
-                new RotateOut(text);
-                break;
-            case "RotateOutDownLeft":
-                new RotateOutDownLeft(text);
-                break;
-            case "RotateOutDownRight":
-                new RotateOutDownRight(text);
-                break;
-            case "RotateOutUpLeft":
-                new RotateOutUpLeft(text);
-                break;
-            case "RotateOutUpRight":
-                new RotateOutUpRight(text);
-                break;
+        } else if ("RotateOut".equals(s)) {
+            new RotateOut(text).play();
+
+        } else if ("RotateOutDownLeft".equals(s)) {
+            new RotateOutDownLeft(text).play();
+
+        } else if ("RotateOutDownRight".equals(s)) {
+            new RotateOutDownRight(text).play();
+
+        } else if ("RotateOutUpLeft".equals(s)) {
+            new RotateOutUpLeft(text).play();
+
+        } else if ("RotateOutUpRight".equals(s)) {
+            new RotateOutUpRight(text).play();
+
 
 
             /*Sliding entrances**/
-            case "SlideInUp":
-                new SlideInUp(text);
-                break;
-            case "SlideInDown":
-                new SlideInDown(text);
-                break;
-            case "SlideInLeft":
-                new SlideInLeft(text);
-                break;
-            case "SlideInRight":
-                new SlideInRight(text);
-                break;
+        } else if ("SlideInUp".equals(s)) {
+            new SlideInUp(text).play();
+
+        } else if ("SlideInDown".equals(s)) {
+            new SlideInDown(text).play();
+
+        } else if ("SlideInLeft".equals(s)) {
+            new SlideInLeft(text).play();
+
+        } else if ("SlideInRight".equals(s)) {
+            new SlideInRight(text).play();
+
 
             /*Sliding exits**/
-            case "SlideOutUp":
-                new SlideOutUp(text);
-                break;
-            case "SlideOutDown":
-                new SlideOutDown(text);
-                break;
-            case "SlideOutLeft":
-                new SlideOutLeft(text);
-                break;
-            case "SlideOutRight":
-                new SlideOutRight(text);
-                break;
+        } else if ("SlideOutUp".equals(s)) {
+            new SlideOutUp(text).play();
+
+        } else if ("SlideOutDown".equals(s)) {
+            new SlideOutDown(text).play();
+
+        } else if ("SlideOutLeft".equals(s)) {
+            new SlideOutLeft(text).play();
+
+        } else if ("SlideOutRight".equals(s)) {
+            new SlideOutRight(text).play();
+
 
             /*Zoom entrances**/
-            case "ZoomIn":
-                new ZoomIn(text);
-                break;
-            case "ZoomInDown":
-                new ZoomInDown(text);
-                break;
-            case "ZoomInLeft":
-                new ZoomInLeft(text);
-                break;
-            case "ZoomInRight":
-                new ZoomInRight(text);
-                break;
-            case "ZoomInUp":
-                new ZoomInUp(text);
-                break;
+        } else if ("ZoomIn".equals(s)) {
+            new ZoomIn(text).play();
+
+        } else if ("ZoomInDown".equals(s)) {
+            new ZoomInDown(text).play();
+
+        } else if ("ZoomInLeft".equals(s)) {
+            new ZoomInLeft(text).play();
+
+        } else if ("ZoomInRight".equals(s)) {
+            new ZoomInRight(text).play();
+
+        } else if ("ZoomInUp".equals(s)) {
+            new ZoomInUp(text).play();
+
 
             /*Zoom exits**/
-            case "ZoomOut":
-                new ZoomOut(text);
-                break;
-            case "ZoomOutDown":
-                new ZoomOutDown(text);
-                break;
-            case "ZoomOutLeft":
-                new ZoomOutLeft(text);
-                break;
-            case "ZoomOutRight":
-                new ZoomOutRight(text);
-                break;
-            case "ZoomOutUp":
-                new ZoomOutUp(text);
-                break;
+        } else if ("ZoomOut".equals(s)) {
+            new ZoomOut(text).play();
+
+        } else if ("ZoomOutDown".equals(s)) {
+            new ZoomOutDown(text).play();
+
+        } else if ("ZoomOutLeft".equals(s)) {
+            new ZoomOutLeft(text).play();
+
+        } else if ("ZoomOutRight".equals(s)) {
+            new ZoomOutRight(text).play();
+
+        } else if ("ZoomOutUp".equals(s)) {
+            new ZoomOutUp(text).play();
+
 
             /*Specials*/
-            case "Hinge":
-                new Hinge(text);
-                break;
-            case "JackInTheBox":
-                new JackInTheBox(text);
-                break;
-            case "RollIn":
-                new RollIn(text);
-                break;
-            case "RollOut":
-                new RollOut(text);
-                break;
+        } else if ("Hinge".equals(s)) {
+            new Hinge(text).play();
 
-            default:
-                break;
+        } else if ("JackInTheBox".equals(s)) {
+            new JackInTheBox(text).play();
 
+        } else if ("RollIn".equals(s)) {
+            new RollIn(text).play();
+
+        } else if ("RollOut".equals(s)) {
+            new RollOut(text).play();
+
+        } else {
         }
-
-
     }
-
 
 }

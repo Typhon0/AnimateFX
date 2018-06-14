@@ -8,9 +8,9 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class BounceInUp {
+public class BounceInUp extends AnimationFX{
 
     /**
      * Create new BounceInUp
@@ -18,33 +18,40 @@ public class BounceInUp {
      * @param node The node to affect
      */
     public BounceInUp(Node node) {
-        BounceInUp(node);
+        super(node);
     }
 
-    private void BounceInUp(Node node) {
-        double startY = node.getScene().getHeight() - node.localToScene(0, 0).getY();
-        Timeline t =
-                new Timeline(
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
+
+    @Override
+    void initTimeline() {
+        double startY = getNode().getScene().getHeight() - getNode().localToScene(0, 0).getY();
+        setTimeline( new Timeline(
                         new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 0, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),
-                                new KeyValue(node.translateYProperty(), startY, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
+                                new KeyValue(getNode().opacityProperty(), 0, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),
+                                new KeyValue(getNode().translateYProperty(), startY, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
                         ),
                         new KeyFrame(Duration.millis(600),
-                                new KeyValue(node.opacityProperty(), 1, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),
-                                new KeyValue(node.translateYProperty(), -20, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
+                                new KeyValue(getNode().opacityProperty(), 1, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),
+                                new KeyValue(getNode().translateYProperty(), -20, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
                         ),
                         new KeyFrame(Duration.millis(750),
-                                new KeyValue(node.translateYProperty(), 10, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
+                                new KeyValue(getNode().translateYProperty(), 10, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
                         ),
                         new KeyFrame(Duration.millis(900),
-                                new KeyValue(node.translateYProperty(), -5, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
+                                new KeyValue(getNode().translateYProperty(), -5, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
                         ),
                         new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.translateYProperty(), 0, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
+                                new KeyValue(getNode().translateYProperty(), 0, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000))
                         )
 
-                );
-        t.play();
+                ));
     }
+
+   
 }
 

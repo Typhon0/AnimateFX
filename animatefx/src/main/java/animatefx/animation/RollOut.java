@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class RollOut {
+public class RollOut extends AnimationFX {
 
     /**
      * Create new RollOut
@@ -18,26 +18,31 @@ public class RollOut {
      * @param node The node to affect
      */
     public RollOut(Node node) {
-        RollOut(node);
+        super(node);
     }
 
-    private void RollOut(Node node) {
-
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateXProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.rotateProperty(), 0, AnimateFXInterpolator.EASE)
-                        ),
-
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateXProperty(), node.getBoundsInLocal().getWidth(), AnimateFXInterpolator.EASE),
-                                new KeyValue(node.rotateProperty(), 120, AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().rotateProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), getNode().getBoundsInLocal().getWidth(), AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().rotateProperty(), 120, AnimateFXInterpolator.EASE)
+                )
+        ));
+    }
+
+
 }
 

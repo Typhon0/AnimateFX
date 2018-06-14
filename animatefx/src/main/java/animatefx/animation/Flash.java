@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class Flash {
+public class Flash extends AnimationFX {
 
     /**
      * Create new Flash
@@ -18,32 +18,37 @@ public class Flash {
      * @param node The node to affect
      */
     public Flash(Node node) {
-        Flash(node);
+        super(node);
     }
 
-    private void Flash(Node node) {
-
-        Timeline t =
-                new Timeline(
-
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(250),
-                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(500),
-                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(750),
-                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
-                        )
-
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(250),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(500),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(750),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                )
+
+        ));
+    }
+
 }
 

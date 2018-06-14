@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class FadeInDownBig {
+public class FadeInDownBig extends AnimationFX {
 
     /**
      * Create new FadeInDownBig
@@ -18,25 +18,28 @@ public class FadeInDownBig {
      * @param node The node to affect
      */
     public FadeInDownBig(Node node) {
-        FadeInDownBig(node);
+        super(node);
     }
 
-    private void FadeInDownBig(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(),0,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateYProperty(), -2000,AnimateFXInterpolator.EASE)
-                        ),
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), -2000, AnimateFXInterpolator.EASE)
+                ),
 
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(),1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateYProperty(), 0,AnimateFXInterpolator.EASE)
-                        )
-
-                );
-        t.play();
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), 0, AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }
 

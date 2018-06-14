@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class RotateOut {
+public class RotateOut extends AnimationFX {
 
     /**
      * Create new RotateOut
@@ -18,22 +18,27 @@ public class RotateOut {
      * @param node The node to affect
      */
     public RotateOut(Node node) {
-        RotateOut(node);
+        super(node);
     }
 
-    private void RotateOut(Node node) {
-        node.setRotationAxis(Rotate.Z_AXIS);
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.rotateProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.rotateProperty(), 200, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
+
+    @Override
+    void initTimeline() {
+        getNode().setRotationAxis(Rotate.Z_AXIS);
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().rotateProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().rotateProperty(), 200, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }

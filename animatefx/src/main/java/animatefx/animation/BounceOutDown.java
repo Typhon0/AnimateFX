@@ -7,9 +7,9 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class BounceOutDown {
+public class BounceOutDown extends AnimationFX {
 
     /**
      * Create new BounceOutDown animation
@@ -17,31 +17,35 @@ public class BounceOutDown {
      * @param node The node to affect
      */
     public BounceOutDown(final Node node) {
-        BounceOutDown(node);
+        super(node);
     }
 
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-    private static void BounceOutDown(Node node) {
-        double endY = node.getScene().getHeight() - node.localToScene(0, 0).getY();
-        Timeline t = new Timeline(
+    @Override
+    void initTimeline() {
+        double endY = getNode().getScene().getHeight() - getNode().localToScene(0, 0).getY();
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(200),
-                        new KeyValue(node.translateYProperty(), 10,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().translateYProperty(), 10, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(400),
-                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.translateYProperty(), -20,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), -20, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
-                        new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.translateYProperty(), endY)
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), endY)
                 )
-
-        );
-
-        t.play();
+        ));
     }
+
 
 }

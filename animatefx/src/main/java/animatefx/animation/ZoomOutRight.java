@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class ZoomOutRight {
+public class ZoomOutRight extends AnimationFX {
 
     /**
      * Create new ZoomOutRight
@@ -18,42 +18,40 @@ public class ZoomOutRight {
      * @param node The node to affect
      */
     public ZoomOutRight(Node node) {
-        ZoomOutRight(node);
+        super(node);
     }
 
-    private void ZoomOutRight(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.translateXProperty(),0,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleXProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 1, AnimateFXInterpolator.EASE)
-
-                        ),
-
-                        new KeyFrame(Duration.millis(400),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateXProperty(),-42,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleXProperty(), 0.475, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 0.475, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 0.475, AnimateFXInterpolator.EASE)
-
-                        ),
-                        new KeyFrame(Duration.millis(1100),
-                                new KeyValue(node.translateXProperty(),2000,AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleXProperty(), 0.1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleYProperty(), 0.1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.scaleZProperty(), 0.1, AnimateFXInterpolator.EASE)
-
-
-                                )
-
-                );
-        t.play();
+    @Override
+    void initTimeline() {
+        new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 1, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(400),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), -42, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 0.475, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 0.475, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 0.475, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1100),
+                        new KeyValue(getNode().translateXProperty(), 2000, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 0.1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 0.1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 0.1, AnimateFXInterpolator.EASE)
+                )
+        );
     }
 }
 

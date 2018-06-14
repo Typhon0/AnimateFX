@@ -12,49 +12,50 @@ import javafx.util.Duration;
  * @author Sculier Loïc aka typhon0
  */
 
-public class LightSpeedIn {
+public class LightSpeedIn extends AnimationFX {
     /**
      * Create new LightSpeedIn
      *
      * @param node The node to affect
      */
     public LightSpeedIn(Node node) {
-        LightSpeedIn(node);
+        super(node);
     }
 
-    private void LightSpeedIn(Node node) {
-        Shear shear = new Shear();
-        node.getTransforms().add(shear);
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline timeline = new Timeline(
+    @Override
+    void initTimeline() {
+        Shear shear = new Shear();
+        getNode().getTransforms().add(shear);
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.translateXProperty(), node.getBoundsInParent().getWidth(), Interpolator.EASE_OUT),
+                        new KeyValue(getNode().translateXProperty(), getNode().getBoundsInParent().getWidth(), Interpolator.EASE_OUT),
                         new KeyValue(shear.xProperty(), -0.30),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 0, Interpolator.EASE_OUT)
+                        new KeyValue(getNode().opacityProperty(), 0, Interpolator.EASE_OUT)
                 ),
                 new KeyFrame(Duration.millis(600),
-                        new KeyValue(node.translateXProperty(), 0, Interpolator.EASE_OUT),
+                        new KeyValue(getNode().translateXProperty(), 0, Interpolator.EASE_OUT),
 
                         new KeyValue(shear.xProperty(), 0.20),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 1, Interpolator.EASE_OUT)
-
+                        new KeyValue(getNode().opacityProperty(), 1, Interpolator.EASE_OUT)
                 ),
                 new KeyFrame(Duration.millis(800),
 
                         new KeyValue(shear.xProperty(), -0.5),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 1, Interpolator.EASE_OUT)
-
+                        new KeyValue(getNode().opacityProperty(), 1, Interpolator.EASE_OUT)
                 ),
                 new KeyFrame(Duration.millis(1000),
                         new KeyValue(shear.xProperty(), 0),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 1, Interpolator.EASE_OUT)
-
-                )
-        );
-        timeline.play();
+                        new KeyValue(getNode().opacityProperty(), 1, Interpolator.EASE_OUT)
+                )));
     }
 }

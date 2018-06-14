@@ -8,30 +8,36 @@ import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class JackInTheBox {
+public class JackInTheBox extends AnimationFX {
 
     /**
      * Create new JackInTheBox animation
      *
      * @param node The node to affect
      */
-    public JackInTheBox(Node node){
-        JackInTheBox(node);
+    public JackInTheBox(Node node) {
+        super(node);
 
     }
 
-    public void JackInTheBox(Node node){
-        Rotate rotate = new Rotate(30,node.getBoundsInParent().getWidth()/2,node.getBoundsInParent().getHeight());
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t = new Timeline(
-
+    @Override
+    void initTimeline() {
+        Rotate rotate = new Rotate(30, getNode().getBoundsInParent().getWidth() / 2, getNode().getBoundsInParent().getHeight());
+        getNode().getTransforms().add(rotate);
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(rotate.angleProperty(), 30, AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleXProperty(),0.1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(),0.1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.opacityProperty(),0,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().scaleXProperty(), 0.1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 0.1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(500),
                         new KeyValue(rotate.angleProperty(), -10, AnimateFXInterpolator.EASE)
@@ -40,16 +46,11 @@ public class JackInTheBox {
                         new KeyValue(rotate.angleProperty(), 3, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
-                        new KeyValue(node.scaleXProperty(),1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(),1,AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE),
                         new KeyValue(rotate.angleProperty(), 0, AnimateFXInterpolator.EASE),
-                        new KeyValue(node.opacityProperty(),1,AnimateFXInterpolator.EASE)
-
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
                 )
-
-        );
-
-        node.getTransforms().add(rotate);
-        t.play();
+        ));
     }
 }

@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class FadeInUp {
+public class FadeInUp extends AnimationFX {
 
     /**
      * Create new FadeInUp
@@ -18,27 +18,33 @@ public class FadeInUp {
      * @param node The node to affect
      */
     public FadeInUp(Node node) {
-        FadeInUp(node);
+        super(node);
     }
 
-    private void FadeInUp(Node node) {
-
-        Timeline t =
-                new Timeline(
-
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateYProperty(), node.getBoundsInParent().getHeight(), AnimateFXInterpolator.EASE)
-
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE),
-                             new KeyValue(node.translateYProperty(), 0, AnimateFXInterpolator.EASE)
-
-                        )
-
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), getNode().getBoundsInParent().getHeight(), AnimateFXInterpolator.EASE)
+
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateYProperty(), 0, AnimateFXInterpolator.EASE)
+
+                )
+
+        ));
+    }
+
+
 }
 

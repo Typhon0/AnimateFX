@@ -6,24 +6,38 @@ import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
-public class FadeIn {
+/**
+ * @Author Loïc Sculier aka typhon0
+ */
 
+public class FadeIn extends AnimationFX {
+
+    /**
+     * Create a new FadeIn animation
+     *
+     * @param node the node to affect
+     */
     public FadeIn(Node node) {
-        FadeIn(node);
+        super(node);
     }
 
-    private void FadeIn(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
-                        )
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                )
 
-                );
-        t.play();
+        ));
     }
 }
+

@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class SlideInDown {
+public class SlideInDown extends AnimationFX {
 
     /**
      * Create new SlideInDown
@@ -18,23 +18,25 @@ public class SlideInDown {
      * @param node The node to affect
      */
     public SlideInDown(Node node) {
-        SlideInDown(node);
+        super(node);
     }
 
-    private void SlideInDown(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.translateYProperty(), -node.getBoundsInParent().getHeight(),AnimateFXInterpolator.EASE)
-                        ),
-
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.translateYProperty(), 0,AnimateFXInterpolator.EASE)
-                        )
-
-                );
-        t.play();
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().translateYProperty(), -getNode().getBoundsInParent().getHeight(), AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().translateYProperty(), 0, AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }
 

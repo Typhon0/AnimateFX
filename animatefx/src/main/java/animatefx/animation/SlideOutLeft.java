@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class SlideOutLeft {
+public class SlideOutLeft extends AnimationFX {
 
     /**
      * Create new SlideOutLeft
@@ -18,25 +18,25 @@ public class SlideOutLeft {
      * @param node The node to affect
      */
     public SlideOutLeft(Node node) {
-        SlideOutLeft(node);
+        super(node);
     }
 
-    private void SlideOutLeft(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.translateXProperty(), 0, AnimateFXInterpolator.EASE)
-
-                        ),
-
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.translateXProperty(), -node.getBoundsInParent().getWidth(), AnimateFXInterpolator.EASE)
-
-                        )
-
-                );
-        t.play();
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().translateXProperty(), -getNode().getBoundsInParent().getWidth(), AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }
 

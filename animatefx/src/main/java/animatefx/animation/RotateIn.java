@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class RotateIn {
+public class RotateIn extends AnimationFX {
 
     /**
      * Create new RotateIn
@@ -18,22 +18,29 @@ public class RotateIn {
      * @param node The node to affect
      */
     public RotateIn(Node node) {
-        RotateIn(node);
+        super(node);
     }
 
-    private void RotateIn(Node node) {
-        node.setRotationAxis(Rotate.Z_AXIS);
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.rotateProperty(), -200, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.rotateProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
     }
+
+    @Override
+    void initTimeline() {
+        getNode().setRotationAxis(Rotate.Z_AXIS);
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().rotateProperty(), -200, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().rotateProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
+                )
+        ));
+    }
+
+
 }

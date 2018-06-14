@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class FadeOutRight {
+public class FadeOutRight extends AnimationFX {
 
     /**
      * Create new FadeOutLeft
@@ -18,27 +18,29 @@ public class FadeOutRight {
      * @param node The node to affect
      */
     public FadeOutRight(Node node) {
-        FadeOutRight(node);
+        super(node);
     }
 
-    private void FadeOutRight(Node node) {
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.opacityProperty(), 1, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateXProperty(), 0, AnimateFXInterpolator.EASE)
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE)
 
-                        ),
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), getNode().getBoundsInParent().getWidth(), AnimateFXInterpolator.EASE)
 
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.opacityProperty(), 0, AnimateFXInterpolator.EASE),
-                                new KeyValue(node.translateXProperty(), node.getBoundsInParent().getWidth(), AnimateFXInterpolator.EASE)
-
-                        )
-
-                );
-        t.play();
+                )
+        ));
     }
 }
 

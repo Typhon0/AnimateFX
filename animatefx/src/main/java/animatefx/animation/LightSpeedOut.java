@@ -12,34 +12,39 @@ import javafx.util.Duration;
  * @author Sculier Loïc aka typhon0
  */
 
-public class LightSpeedOut {
+public class LightSpeedOut extends AnimationFX {
     /**
      * Create new LightSpeedOut
      *
      * @param node The node to affect
      */
     public LightSpeedOut(Node node) {
-        LightSpeedOut(node);
+        super(node);
     }
 
-    private void LightSpeedOut(Node node) {
-        Shear shear = new Shear();
-        node.getTransforms().add(shear);
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-        Timeline timeline = new Timeline(
+    @Override
+    void initTimeline() {
+        Shear shear = new Shear();
+        getNode().getTransforms().add(shear);
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(shear.xProperty(), 0),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 1, Interpolator.EASE_IN)
+                        new KeyValue(getNode().opacityProperty(), 1, Interpolator.EASE_IN)
                 ),
                 new KeyFrame(Duration.millis(1000),
-                        new KeyValue(node.translateXProperty(), node.getBoundsInParent().getWidth(), Interpolator.EASE_IN),
+                        new KeyValue(getNode().translateXProperty(), getNode().getBoundsInParent().getWidth(), Interpolator.EASE_IN),
                         new KeyValue(shear.xProperty(), 0.30),
                         new KeyValue(shear.yProperty(), 0),
-                        new KeyValue(node.opacityProperty(), 0, Interpolator.EASE_IN)
-
+                        new KeyValue(getNode().opacityProperty(), 0, Interpolator.EASE_IN)
                 )
-        );
-        timeline.play();
+        ));
     }
+
 }

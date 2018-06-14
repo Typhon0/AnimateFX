@@ -7,9 +7,9 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class BounceOutLeft {
+public class BounceOutLeft extends AnimationFX {
 
     /**
      * Create new BounceOutLeft animation
@@ -17,26 +17,32 @@ public class BounceOutLeft {
      * @param node The node to affect
      */
     public BounceOutLeft(final Node node) {
-        BounceOutLeft(node);
+        super(node);
     }
 
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-    private static void BounceOutLeft(Node node) {
-        Timeline t = new Timeline(
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(200),
-                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.translateXProperty(), 20,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), 20, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
-                        new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.translateXProperty(), -2000,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().translateXProperty(), -2000, AnimateFXInterpolator.EASE)
                 )
 
-        );
-        t.play();
+        ));
     }
+
 
 }

@@ -12,52 +12,57 @@ import javafx.util.Duration;
  * @author Remi Lenoir
  */
 
-public class Jello {
+public class Jello extends AnimationFX {
     /**
-     * Create new Jellow
+     * Create new Jello
      *
      * @param node The node to affect
      */
-    public Jello(Node node){
-        Jello(node);
+    public Jello(Node node) {
+        super(node);
     }
 
-    private void Jello(Node node){
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
+
+    @Override
+    void initTimeline() {
         Shear shear = new Shear();
-
-        Bounds bounds = node.getLayoutBounds();
-        shear.setPivotX(bounds.getWidth()/2);
-        shear.setPivotY(bounds.getHeight()/2);
-        node.getTransforms().add(shear);
-
-        Timeline timeline = new Timeline(
+        Bounds bounds = getNode().getLayoutBounds();
+        shear.setPivotX(bounds.getWidth() / 2);
+        shear.setPivotY(bounds.getHeight() / 2);
+        getNode().getTransforms().add(shear);
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(shear.xProperty(),0),
+                        new KeyValue(shear.xProperty(), 0),
                         new KeyValue(shear.yProperty(), 0)),
                 new KeyFrame(Duration.millis(111),
                         new KeyValue(shear.xProperty(), 0.125),
-                        new KeyValue(shear.yProperty(),0.125)),
+                        new KeyValue(shear.yProperty(), 0.125)),
                 new KeyFrame(Duration.millis(222),
-                        new KeyValue(shear.xProperty(),-0.625),
+                        new KeyValue(shear.xProperty(), -0.625),
                         new KeyValue(shear.yProperty(), -0.625)),
                 new KeyFrame(Duration.millis(333),
-                        new KeyValue(shear.xProperty(),0.3125),
+                        new KeyValue(shear.xProperty(), 0.3125),
                         new KeyValue(shear.yProperty(), 0.3125)),
                 new KeyFrame(Duration.millis(444),
-                        new KeyValue(shear.xProperty(),-0.15625),
+                        new KeyValue(shear.xProperty(), -0.15625),
                         new KeyValue(shear.yProperty(), -0.15625)),
                 new KeyFrame(Duration.millis(555),
-                        new KeyValue(shear.xProperty(),0.078125),
+                        new KeyValue(shear.xProperty(), 0.078125),
                         new KeyValue(shear.yProperty(), 0.078125)),
                 new KeyFrame(Duration.millis(666),
-                        new KeyValue(shear.xProperty(),-0.0390625),
+                        new KeyValue(shear.xProperty(), -0.0390625),
                         new KeyValue(shear.yProperty(), -0.0390625)),
                 new KeyFrame(Duration.millis(777),
-                        new KeyValue(shear.xProperty(),0.01953125),
+                        new KeyValue(shear.xProperty(), 0.01953125),
                         new KeyValue(shear.yProperty(), 0.01953125)),
                 new KeyFrame(Duration.millis(888),
-                        new KeyValue(shear.xProperty(),0),
-                        new KeyValue(shear.yProperty(), 0)));
-        timeline.play();
+                        new KeyValue(shear.xProperty(), 0),
+                        new KeyValue(shear.yProperty(), 0))));
     }
+
 }

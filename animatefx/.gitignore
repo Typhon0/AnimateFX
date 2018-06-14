@@ -79,15 +79,18 @@ fabric.properties
 ehthumbs.db
 Thumbs.db
 
+# Gradle #
+.gradle
+!gradle-wrapper.jar
+/build/
+
 \.idea/
-
-src/sample/
-
 *\.iml
 .idea/
 *.iml
-
-.gradle
 .project
 .classpath
 .settings/
+
+
+

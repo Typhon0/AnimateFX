@@ -81,13 +81,15 @@ Thumbs.db
 
 \.idea/
 
-src/sample/
+# Gradle #
+.gradle
+!gradle-wrapper.jar
+/build/
 
 *\.iml
 .idea/
 *.iml
-
-.gradle
+/build
 .project
 .classpath
 .settings/

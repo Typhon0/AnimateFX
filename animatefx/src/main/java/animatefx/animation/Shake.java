@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class Shake {
+public class Shake extends AnimationFX {
 
     /**
      * Create new Shake
@@ -18,49 +18,52 @@ public class Shake {
      * @param node The node to affect
      */
     public Shake(Node node) {
-        Shake(node);
+        super(node);
     }
 
-    private void Shake(Node node) {
-        Timeline t =
-                new Timeline(
-                        new KeyFrame(Duration.millis(0),
-                                new KeyValue(node.translateXProperty(), 0,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(100),
-                                new KeyValue(node.translateXProperty(), -10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(200),
-                                new KeyValue(node.translateXProperty(), 10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(300),
-                                new KeyValue(node.translateXProperty(), -10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(400),
-                                new KeyValue(node.translateXProperty(), 10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(500),
-                                new KeyValue(node.translateXProperty(), -10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(600),
-                                new KeyValue(node.translateXProperty(), 10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(700),
-                                new KeyValue(node.translateXProperty(), -10,AnimateFXInterpolator.EASE)
-                        ),
-                        new KeyFrame(Duration.millis(800),
-                                new KeyValue(node.translateXProperty(), 10,AnimateFXInterpolator.EASE)
-                        ),
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-                        new KeyFrame(Duration.millis(900),
-                                new KeyValue(node.translateXProperty(), -10,AnimateFXInterpolator.EASE)
-                        ),
-
-                        new KeyFrame(Duration.millis(1000),
-                                new KeyValue(node.translateXProperty(), 0,AnimateFXInterpolator.EASE)
-                        )
-                );
-        t.play();
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(100),
+                        new KeyValue(getNode().translateXProperty(), -10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(200),
+                        new KeyValue(getNode().translateXProperty(), 10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(300),
+                        new KeyValue(getNode().translateXProperty(), -10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(400),
+                        new KeyValue(getNode().translateXProperty(), 10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(500),
+                        new KeyValue(getNode().translateXProperty(), -10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(600),
+                        new KeyValue(getNode().translateXProperty(), 10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(700),
+                        new KeyValue(getNode().translateXProperty(), -10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(800),
+                        new KeyValue(getNode().translateXProperty(), 10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(900),
+                        new KeyValue(getNode().translateXProperty(), -10, AnimateFXInterpolator.EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE)
+                )
+        ));
     }
 }
 

@@ -7,45 +7,50 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 /**
- * @author Loïc Sculier
+ * @author Loïc Sculier aka typhon0
  */
-public class BounceOut {
+public class BounceOut extends AnimationFX {
 
     /**
-     * Create new BounceInDown animation
+     * Create new BounceOut animation
      *
      * @param node The node to affect
      */
-    public BounceOut(final Node node){
-        BounceOut(node);
+    public BounceOut(final Node node) {
+        super(node);
     }
 
+    @Override
+    AnimationFX resetNode() {
+        //TODO
+        return this;
+    }
 
-
-    private static void BounceOut(Node node) {
-        Timeline t = new Timeline(
+    @Override
+    void initTimeline() {
+        setTimeline(new Timeline(
 
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(node.scaleXProperty(), 1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(), 1,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(200),
-                        new KeyValue(node.scaleXProperty(), 0.9,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(), 0.9,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().scaleXProperty(), 0.9, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 0.9, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(550),
-                        new KeyValue(node.opacityProperty(), 1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleXProperty(), 1.1,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(), 1.1,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 1.1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1.1, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
-                        new KeyValue(node.opacityProperty(), 0,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleXProperty(), 0.3,AnimateFXInterpolator.EASE),
-                        new KeyValue(node.scaleYProperty(), 0.3,AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleXProperty(), 0.3, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 0.3, AnimateFXInterpolator.EASE)
                 )
 
-        );
-        t.play();
+        ));
     }
+
 
 }
