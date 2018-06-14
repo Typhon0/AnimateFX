@@ -19,7 +19,7 @@ Features:
 ```
 dependencies {
 
-compile 'animatefx:animatefx:1.0.0'
+compile 'animatefx:animatefx:1.1.0'
 
 }
 ```
@@ -29,7 +29,7 @@ compile 'animatefx:animatefx:1.0.0'
 <dependency>
     <groupId>animatefx</groupId>
     <artifactId>animatefx</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <type>pom</type>
 </dependency>
 ```
