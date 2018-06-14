@@ -11,14 +11,6 @@ repositories {
 version = '1.1.0' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
 sourceCompatibility = 1.8
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ["src"]
-        }
-    }
-}
-
 dependencies {
 }
 
