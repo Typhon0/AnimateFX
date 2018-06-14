@@ -1,0 +1,22 @@
+apply plugin: 'application'
+
+mainClassName = "animatefx.demo.Main"
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
+
+dependencies {
+    compile project(":animatefx")
+
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "animatefx.demo.Main"
+    }
+
+}
