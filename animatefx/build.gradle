@@ -1,5 +1,6 @@
 plugins {
     id "com.jfrog.bintray" version "1.8.1"
+    id "com.jfrog.artifactory" version"4.7.3"
     id "maven-publish"
     id "java"
 }
@@ -85,6 +86,7 @@ bintray {
         name = 'animatefx'
         userOrg = 'typhon0'
         licenses = ['Apache-2.0']
+        publish = true
         vcsUrl = 'https://github.com/typhon0/animatefx.git'
         version {
             name = project.version
@@ -93,4 +95,24 @@ bintray {
         }
     }
 
+}
+
+artifactory {
+    contextUrl = 'http://oss.jfrog.org'
+    publish {
+        repository {
+            repoKey = 'oss-snapshot-local'
+            username = System.getProperty('bintray.user')
+            password = System.getProperty('bintray.key')
+        }
+        defaults {
+            publications('mavenPublication')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+    resolve {
+        repoKey = 'jcenter'
+    }
+    clientConfig.info.setBuildNumber(System.getProperty('build.number'))
 }

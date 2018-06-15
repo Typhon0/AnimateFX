@@ -16,7 +16,9 @@ public abstract class AnimationFX {
     private AnimationFX nextAnimation;
 
     /**
-     * @param node
+     * Create a new animation
+     *
+     * @param node the node to affect
      */
     public AnimationFX(Node node) {
         this.reset = false;

@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 /**
- * @Author Loïc Sculier aka typhon0
+ * @author Loïc Sculier aka typhon0
  */
 
 public class FadeIn extends AnimationFX {
