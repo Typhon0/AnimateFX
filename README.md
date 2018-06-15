@@ -9,11 +9,12 @@ A library of ready-to-use animations for JavaFX
 Features:
 
 * Custom animations
-* Custom interpolator
-* Play/Stop animation (In progress)
+* Custom interpolators
+* Play/Stop animation
+* Play an animation after another 
 * More to come
 
-# How to use
+# Installation
 
 ### Gradle
 ```
@@ -33,24 +34,32 @@ compile 'animatefx:animatefx:1.1.0'
     <type>pom</type>
 </dependency>
 ```
+## Snapshot
 
+### Gradle
+```
+repositories {
+	maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
+}
+
+dependencies {
+    compile('group.id:animatefx:1.1.0-SNAPSHOT')
+}
+```
 # Quick start
 
 #### Basic
 
 ```
-Text text = new Text();
-new Bounce(text);
+Text text = new Text("AnimateFX");
+new Bounce(text).play();
 ```
 
-#### Handler
+#### Play an animation after another
 
 ```
-    @FXML
-    Text text;
-
-    @FXML
+    Text text = new Text("AnimateFX");
     public void HandleAnimation(ActionEvent actionEvent) {
-      new Bounce(text);
-    }
+      new Bounce(text).setPlayOnFinished(new BounceIn(text)).play();
+      }
 ```
