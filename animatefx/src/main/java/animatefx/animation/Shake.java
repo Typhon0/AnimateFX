@@ -23,7 +23,6 @@ public class Shake extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

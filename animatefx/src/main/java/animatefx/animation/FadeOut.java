@@ -20,7 +20,7 @@ public class FadeOut extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
         return this;
     }
 

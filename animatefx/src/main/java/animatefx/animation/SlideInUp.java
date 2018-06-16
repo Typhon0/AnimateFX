@@ -23,7 +23,7 @@ public class SlideInUp extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+
         return this;
     }
 

@@ -23,7 +23,11 @@ public class ZoomOutDown extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        getNode().setScaleX(1);
+        getNode().setScaleY(1);
+        getNode().setScaleZ(1);
+        getNode().setTranslateY(0);
         return this;
     }
 

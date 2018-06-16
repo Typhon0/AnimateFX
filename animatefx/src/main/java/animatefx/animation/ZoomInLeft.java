@@ -24,7 +24,6 @@ public class ZoomInLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

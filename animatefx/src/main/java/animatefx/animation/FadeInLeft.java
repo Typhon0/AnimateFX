@@ -23,7 +23,6 @@ public class FadeInLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

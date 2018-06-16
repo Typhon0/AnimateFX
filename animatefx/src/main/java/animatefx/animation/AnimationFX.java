@@ -2,6 +2,7 @@ package animatefx.animation;
 
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.scene.CacheHint;
 import javafx.scene.Node;
 
 
@@ -11,9 +12,10 @@ import javafx.scene.Node;
 public abstract class AnimationFX {
 
     private Timeline timeline;
-    private boolean reset, cache;
+    private boolean reset;
     private Node node;
     private AnimationFX nextAnimation;
+    private boolean hasNextAnimation;
 
     /**
      * Create a new animation
@@ -21,17 +23,11 @@ public abstract class AnimationFX {
      * @param node the node to affect
      */
     public AnimationFX(Node node) {
+        hasNextAnimation = false;
         this.reset = false;
-        cache = false;
         this.node = node;
         initTimeline();
         timeline.setOnFinished(this::onFinished);
-
-    }
-
-    public AnimationFX(Node node, boolean start) {
-        this(node);
-        play();
 
     }
 
@@ -44,10 +40,6 @@ public abstract class AnimationFX {
     public AnimationFX onFinished(ActionEvent actionEvent) {
         if (reset) {
             resetNode();
-        }
-
-        if (cache) {
-            //TODO cache
         }
 
         if (this.nextAnimation != null) {
@@ -63,7 +55,8 @@ public abstract class AnimationFX {
      * @param animation
      * @return
      */
-    public AnimationFX setPlayOnFinished(AnimationFX animation) {
+    public AnimationFX PlayOnFinished(AnimationFX animation) {
+        this.hasNextAnimation = true;
         this.nextAnimation = animation;
         return this;
     }
@@ -85,7 +78,6 @@ public abstract class AnimationFX {
      * @return
      */
     public AnimationFX play() {
-
         timeline.play();
         return this;
     }
@@ -97,6 +89,16 @@ public abstract class AnimationFX {
      */
     public AnimationFX stop() {
         timeline.stop();
+        return this;
+    }
+
+    /**
+     * Stop repeating the animation but wait the current one to finish
+     *
+     * @return
+     */
+    public AnimationFX stopRepeat() {
+        //TODO
         return this;
     }
 
@@ -129,14 +131,6 @@ public abstract class AnimationFX {
         this.reset = reset;
     }
 
-    public boolean isCache() {
-        return cache;
-    }
-
-    public void setCache(boolean cache) {
-        this.cache = cache;
-    }
-
     public Node getNode() {
         return node;
     }
@@ -150,6 +144,15 @@ public abstract class AnimationFX {
     }
 
     protected void setNextAnimation(AnimationFX nextAnimation) {
+        hasNextAnimation = true;
         this.nextAnimation = nextAnimation;
+    }
+
+    public boolean isHasNextAnimation() {
+        return hasNextAnimation;
+    }
+
+    public void setHasNextAnimation(boolean hasNextAnimation) {
+        this.hasNextAnimation = hasNextAnimation;
     }
 }

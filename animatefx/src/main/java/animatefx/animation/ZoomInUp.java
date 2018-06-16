@@ -24,7 +24,6 @@ public class ZoomInUp extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

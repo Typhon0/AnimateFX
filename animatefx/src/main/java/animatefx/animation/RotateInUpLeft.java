@@ -23,7 +23,6 @@ public class RotateInUpLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

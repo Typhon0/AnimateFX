@@ -23,7 +23,8 @@ public class SlideOutUp extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        getNode().setTranslateY(0);
         return this;
     }
 

@@ -23,7 +23,6 @@ public class Swing extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

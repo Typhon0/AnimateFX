@@ -23,7 +23,7 @@ public class Flash extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+
         return this;
     }
 

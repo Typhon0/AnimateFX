@@ -22,7 +22,7 @@ public class Wobble extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+
         return this;
     }
 

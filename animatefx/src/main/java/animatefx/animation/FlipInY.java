@@ -28,7 +28,6 @@ public class FlipInY extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

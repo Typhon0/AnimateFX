@@ -4,7 +4,6 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
@@ -25,7 +24,7 @@ public class Bounce extends AnimationFX {
     }
 
     public Bounce(Node node, boolean start) {
-        super(node, start);
+        super(node);
     }
 
     @Override

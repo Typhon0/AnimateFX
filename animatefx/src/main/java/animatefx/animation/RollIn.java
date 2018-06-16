@@ -23,7 +23,6 @@ public class RollIn extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

@@ -23,7 +23,6 @@ public class FadeInRightBig extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

@@ -23,20 +23,21 @@ public class SlideOutDown extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        getNode().setTranslateY(0);
         return this;
     }
 
     @Override
     void initTimeline() {
-        new Timeline(
+      setTimeline(  new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().translateYProperty(), 0, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
                         new KeyValue(getNode().translateYProperty(), getNode().getBoundsInParent().getHeight(), AnimateFXInterpolator.EASE)
                 )
-        );
+        ));
     }
 }
 

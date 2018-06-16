@@ -28,7 +28,6 @@ public class Flip extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

@@ -23,7 +23,6 @@ public class Tada extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 
@@ -94,6 +93,8 @@ public class Tada extends AnimationFX {
                 ),
                 new KeyFrame(Duration.millis(1000),
                         new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleYProperty(), 1, AnimateFXInterpolator.EASE),
+                        new KeyValue(getNode().scaleZProperty(), 1, AnimateFXInterpolator.EASE),
                         new KeyValue(getNode().rotateProperty(), 0, AnimateFXInterpolator.EASE)
                 )
         ));

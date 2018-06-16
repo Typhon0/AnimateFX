@@ -23,7 +23,9 @@ public class RollOut extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        getNode().setTranslateX(0);
+        getNode().setRotate(0);
         return this;
     }
 

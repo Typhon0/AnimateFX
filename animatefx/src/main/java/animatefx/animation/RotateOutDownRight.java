@@ -12,6 +12,8 @@ import javafx.util.Duration;
  */
 public class RotateOutDownRight extends AnimationFX {
 
+    private Rotate rotate;
+
     /**
      * Create new RotateOutDownRight
      *
@@ -23,14 +25,14 @@ public class RotateOutDownRight extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        rotate.setAngle(0);
         return this;
     }
 
     @Override
     void initTimeline() {
-        getNode().setRotationAxis(Rotate.Z_AXIS);
-        Rotate rotate = new Rotate(0, getNode().getBoundsInLocal().getWidth(), getNode().getBoundsInLocal().getHeight());
+        rotate = new Rotate(0, getNode().getBoundsInLocal().getWidth(), getNode().getBoundsInLocal().getHeight());
         getNode().getTransforms().add(rotate);
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),

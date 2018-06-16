@@ -23,7 +23,6 @@ public class SlideInLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
         return this;
     }
 

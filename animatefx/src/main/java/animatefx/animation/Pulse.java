@@ -24,7 +24,7 @@ public class Pulse extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        return null;
+        return this;
     }
 
     @Override

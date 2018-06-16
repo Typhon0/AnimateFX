@@ -22,7 +22,8 @@ public class BounceOutLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setTranslateX(0);
+        getNode().setOpacity(1);
         return this;
     }
 

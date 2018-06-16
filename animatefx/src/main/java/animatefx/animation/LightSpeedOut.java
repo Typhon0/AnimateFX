@@ -13,6 +13,9 @@ import javafx.util.Duration;
  */
 
 public class LightSpeedOut extends AnimationFX {
+
+    private Shear shear;
+
     /**
      * Create new LightSpeedOut
      *
@@ -24,13 +27,16 @@ public class LightSpeedOut extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        shear.setX(0);
+        shear.setY(0);
+        getNode().setOpacity(1);
+        getNode().setTranslateX(0);
         return this;
     }
 
     @Override
     void initTimeline() {
-        Shear shear = new Shear();
+        shear = new Shear();
         getNode().getTransforms().add(shear);
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),

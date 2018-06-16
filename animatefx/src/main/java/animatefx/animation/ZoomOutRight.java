@@ -23,13 +23,17 @@ public class ZoomOutRight extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-        //TODO
+        getNode().setOpacity(1);
+        getNode().setScaleX(1);
+        getNode().setScaleY(1);
+        getNode().setScaleZ(1);
+        getNode().setTranslateX(0);
         return this;
     }
 
     @Override
     void initTimeline() {
-        new Timeline(
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE),
                         new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE),
@@ -51,7 +55,7 @@ public class ZoomOutRight extends AnimationFX {
                         new KeyValue(getNode().scaleYProperty(), 0.1, AnimateFXInterpolator.EASE),
                         new KeyValue(getNode().scaleZProperty(), 0.1, AnimateFXInterpolator.EASE)
                 )
-        );
+        ));
     }
 }
 
