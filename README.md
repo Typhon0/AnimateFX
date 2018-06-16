@@ -20,7 +20,7 @@ Features:
 ```
 dependencies {
 
-compile 'animatefx:animatefx:1.1.0'
+compile 'animatefx:animatefx:1.2.0'
 
 }
 ```
@@ -30,7 +30,7 @@ compile 'animatefx:animatefx:1.1.0'
 <dependency>
     <groupId>animatefx</groupId>
     <artifactId>animatefx</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <type>pom</type>
 </dependency>
 ```
@@ -43,7 +43,7 @@ repositories {
 }
 
 dependencies {
-    compile('group.id:animatefx:1.1.0-SNAPSHOT')
+    compile('group.id:animatefx:1.2.0-SNAPSHOT')
 }
 ```
 # Quick start
