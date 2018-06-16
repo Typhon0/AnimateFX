@@ -22,7 +22,7 @@ public class Controller {
         switch (s) {
             /*Attention seekers**/
             case "Bounce":
-                new Bounce(text).play();
+                new Bounce(text).setCycleDuration(2).setCycleCount(2).play();
 
                 break;
             case "Flash":

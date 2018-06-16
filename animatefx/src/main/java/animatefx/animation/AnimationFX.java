@@ -2,8 +2,8 @@ package animatefx.animation;
 
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.scene.CacheHint;
 import javafx.scene.Node;
+import javafx.util.Duration;
 
 
 /**
@@ -11,6 +11,11 @@ import javafx.scene.Node;
  */
 public abstract class AnimationFX {
 
+    /**
+     * Used to specify an animation that repeats indefinitely, until the
+     * {@code stop()} method is called.
+     */
+    public static final int INDEFINITE = -1;
     private Timeline timeline;
     private boolean reset;
     private Node node;
@@ -28,7 +33,6 @@ public abstract class AnimationFX {
         this.node = node;
         initTimeline();
         timeline.setOnFinished(this::onFinished);
-
     }
 
     /**
@@ -41,11 +45,9 @@ public abstract class AnimationFX {
         if (reset) {
             resetNode();
         }
-
         if (this.nextAnimation != null) {
             this.nextAnimation.play();
         }
-
         return this;
     }
 
@@ -74,12 +76,9 @@ public abstract class AnimationFX {
 
     /**
      * Play the animation
-     *
-     * @return
      */
-    public AnimationFX play() {
+    public void play() {
         timeline.play();
-        return this;
     }
 
     /**
@@ -89,16 +88,6 @@ public abstract class AnimationFX {
      */
     public AnimationFX stop() {
         timeline.stop();
-        return this;
-    }
-
-    /**
-     * Stop repeating the animation but wait the current one to finish
-     *
-     * @return
-     */
-    public AnimationFX stopRepeat() {
-        //TODO
         return this;
     }
 
@@ -148,11 +137,50 @@ public abstract class AnimationFX {
         this.nextAnimation = nextAnimation;
     }
 
-    public boolean isHasNextAnimation() {
+    public boolean HasNextAnimation() {
         return hasNextAnimation;
     }
 
-    public void setHasNextAnimation(boolean hasNextAnimation) {
+    protected void setHasNextAnimation(boolean hasNextAnimation) {
         this.hasNextAnimation = hasNextAnimation;
+    }
+
+    /**
+     * Define the number of cycles in this animation
+     *
+     * @param value
+     * @return
+     */
+    public AnimationFX setCycleCount(int value) {
+        this.timeline.setCycleCount(value);
+        return this;
+    }
+
+    /**
+     * Set the speed factor of the animation
+     *
+     * @param value
+     * @return
+     */
+    public AnimationFX setSpeed(double value) {
+        this.timeline.setRate(value);
+        return this;
+    }
+
+    /**
+     * Delays the start of an animation
+     *
+     * @param value
+     * @return
+     */
+    public AnimationFX setDelay(Duration value) {
+        this.timeline.setDelay(value);
+        return this;
+    }
+
+
+    public AnimationFX setCycleDuration(int value) {
+        this.timeline.setCycleCount(value);
+        return this;
     }
 }
