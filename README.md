@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/Typhon0/AnimateFX.svg?branch=master)](https://travis-ci.org/Typhon0/AnimateFX)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Bintray](https://api.bintray.com/packages/typhon0/AnimateFX/animatefx/images/download.svg)](https://bintray.com/typhon0/AnimateFX/animatefx)
+[![Join the chat at https://gitter.im/AnimateFX/Lobby](https://badges.gitter.im/AnimateFX/Lobby.svg)](https://gitter.im/AnimateFX/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![HitCount](http://hits.dwyl.io/Typhon0/AnimateFX.svg)](http://hits.dwyl.io/Typhon0/AnimateFX)
 
 # AnimateFX
@@ -63,3 +64,11 @@ new Bounce(text).play();
       new Bounce(text).setPlayOnFinished(new BounceIn(text)).play();
       }
 ```
+
+# Contributing
+
+Please see  [CONTRIBUTING.md](https://github.com/Typhon0/AnimateFX/blob/master/CONTRIBUTING.md) for more information.
+
+# Credits
+
+Animations are inspired from awesome project [Animate.css](https://github.com/daneden/animate.css)
