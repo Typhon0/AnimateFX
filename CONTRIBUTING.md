@@ -3,7 +3,7 @@
 
 First , thanks for taking the time to contribute! :smile:
 
-The following is a set of guidelines for contributing to AnimateFX UI. These are  guidelines, not rules. 
+The following is a set of guidelines for contributing to AnimateFX. These are  guidelines, not rules. 
 
 Feel free to propose changes to this document in a pull request.
 
@@ -25,3 +25,17 @@ Explain the problem and include additional details to help reproduce the problem
 If you want to suggest features for AnimateFX like add a new animation or anything else that can make AnimateFX better:
 
 You can vote and submit [features request here](https://animatefx.featureupvote.com).
+
+## Pull Request
+
+1. Fork the animatefx repo
+2. Make your change in a new branch
+
+``git checkout -b my-fix-branch master``
+
+3. Test your code
+4. Commit your changes using a descriptive commit message.
+5. Push your branch to GitHub.
+6. Send a pull request to `animatefx:master`
+
+After your pull request is merged, you can safely delete your branch and pull the changes from the main (upstream). repository
