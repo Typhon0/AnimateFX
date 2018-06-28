@@ -1,6 +1,9 @@
 package animatefx.animation;
 
+import javafx.animation.Animation;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.util.Duration;
@@ -32,16 +35,19 @@ public abstract class AnimationFX {
         this.reset = false;
         this.node = node;
         initTimeline();
-        timeline.setOnFinished(this::onFinished);
+        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals(Animation.Status.STOPPED)) {
+                onFinished();
+            }
+        });
     }
 
     /**
      * Handle when the animation is finished
      *
-     * @param actionEvent
      * @return
      */
-    public AnimationFX onFinished(ActionEvent actionEvent) {
+    private AnimationFX onFinished() {
         if (reset) {
             resetNode();
         }
@@ -57,7 +63,7 @@ public abstract class AnimationFX {
      * @param animation
      * @return
      */
-    public AnimationFX PlayOnFinished(AnimationFX animation) {
+    public AnimationFX playOnFinished(AnimationFX animation) {
         this.hasNextAnimation = true;
         this.nextAnimation = animation;
         return this;
@@ -137,7 +143,7 @@ public abstract class AnimationFX {
         this.nextAnimation = nextAnimation;
     }
 
-    public boolean HasNextAnimation() {
+    public boolean hasNextAnimation() {
         return hasNextAnimation;
     }
 
