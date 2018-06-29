@@ -62,7 +62,7 @@ publishing {
             artifact javadocJar {
                 classifier "javadoc"
             }
-            groupId 'org.animatefx'
+            groupId 'io.github.typhon0'
             artifactId 'AnimateFX'
             version project.version
             pom.withXml {
