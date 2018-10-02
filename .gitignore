@@ -95,3 +95,4 @@ Thumbs.db
 .project
 .classpath
 .settings/
+.nb-gradle/
