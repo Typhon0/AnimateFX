@@ -4,14 +4,15 @@ import animatefx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 
 public class Controller {
-
-
+    
     @FXML
-    Text text;
+    Label text;
 
 
     @FXML
@@ -356,11 +357,21 @@ public class Controller {
             case "RollOut":
                 new RollOut(text).setResetOnFinished(true).play();
 
-                break;
+                /* Colors */
+                break;                
+            case "TextGlow":
+                new GlowText(text, Color.ORANGE, Color.ORANGERED)
+                        .setCycleCount(3)
+                        .setSpeed(0.5)
+                        .setResetOnFinished(true)
+                        .play();
+                break; 
+                
             default:
                 System.err.println("No animation binded to this button");
                 break;
         }
+        
     }
 
 }
