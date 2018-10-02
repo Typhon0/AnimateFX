@@ -181,9 +181,4 @@ public abstract class AnimationFX {
         return this;
     }
 
-
-    public AnimationFX setCycleDuration(int value) {
-        this.timeline.setCycleCount(value);
-        return this;
-    }
 }
