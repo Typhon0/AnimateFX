@@ -12,13 +12,17 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 /**
- * Makes the node's background "glow" alternating between two colors
+ * Makes the node's background "glow" alternating between two colors.
+ * If the node has a {@link Background}, then the {@link CornerRadii} and {@link Insets}
+ * of the last of its {@link BackgroundFill}s are used for the glowing background
  *
  * @author negste
  */
 public class GlowBackground extends AnimationFX {
 
     private final Background originalBackground;
+    private final CornerRadii originalRadii;
+    private final Insets originalInsets;
 
     /**
      * Constructs the animation
@@ -31,6 +35,14 @@ public class GlowBackground extends AnimationFX {
     public GlowBackground(Region node, Color colorA, Color colorB, int colorSteps) {
         super(node);
         this.originalBackground = getNode().backgroundProperty().get();
+        if (originalBackground != null && !originalBackground.getFills().isEmpty()) {
+            BackgroundFill lastFill = originalBackground.getFills().get(originalBackground.getFills().size() - 1);
+            originalRadii = lastFill.getRadii();
+            originalInsets = lastFill.getInsets();
+        } else {
+            originalRadii = CornerRadii.EMPTY;
+            originalInsets = Insets.EMPTY;
+        }
         
         int totalFrames = colorSteps * 2;
         double millisPerFrame = 1000 / totalFrames;
@@ -46,7 +58,8 @@ public class GlowBackground extends AnimationFX {
             getTimeline().getKeyFrames().add(
                     new KeyFrame(dur,
                             new KeyValue(getNode().backgroundProperty(),
-                                    new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)))));
+//                                    new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)))));
+                                    new Background(new BackgroundFill(color, originalRadii, originalInsets)))));
         }
 
     }

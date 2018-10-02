@@ -1,18 +1,23 @@
 package animatefx.demo;
 
 import animatefx.animation.*;
+import javafx.animation.Animation;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-
+import javafx.util.Duration;
 
 public class Controller {
-    
+
     @FXML
     Label text;
-
 
     @FXML
     public void handleClick(ActionEvent actionEvent) {
@@ -56,8 +61,6 @@ public class Controller {
             case "Jello":
                 new Jello(text).play();
 
-
-
                 /*Bounce Entrances**/
                 break;
             case "BounceIn":
@@ -79,8 +82,6 @@ public class Controller {
             case "BounceInUp":
                 new BounceInUp(text).play();
 
-
-
                 /*Bouncing exits**/
                 break;
             case "BounceOut":
@@ -101,8 +102,6 @@ public class Controller {
                 break;
             case "BounceOutUp":
                 new BounceOutUp(text).setResetOnFinished(true).play();
-
-
 
                 /*Fading entrances**/
                 break;
@@ -179,8 +178,6 @@ public class Controller {
             case "FadeOutUpBig":
                 new FadeOutUpBig(text).setResetOnFinished(true).play();
 
-
-
                 /*Flipeprs**/
                 break;
             case "Flip":
@@ -211,8 +208,6 @@ public class Controller {
                 break;
             case "LightSpeedOut":
                 new LightSpeedOut(text).setResetOnFinished(true).play();
-
-
 
                 /*Rotating entrances**/
                 break;
@@ -256,8 +251,6 @@ public class Controller {
                 break;
             case "RotateOutUpRight":
                 new RotateOutUpRight(text).setResetOnFinished(true).play();
-
-
 
                 /*Sliding entrances**/
                 break;
@@ -357,27 +350,50 @@ public class Controller {
                 new RollOut(text).setResetOnFinished(true).play();
 
                 /* Colors */
-                break;                
+                break;
             case "TextGlow":
                 new GlowText(text, Color.ORANGE, Color.ORANGERED)
                         .setCycleCount(3)
                         .setSpeed(0.5)
                         .setResetOnFinished(true)
                         .play();
-                break; 
+                break;
             case "BackgroundGlow":
+                //no background
+//                text.setBackground(null);
+                //one backgroundfille
+//                text.setBackground(
+//                        new Background(
+//                                new BackgroundFill(
+//                                        Color.LIGHTBLUE,
+//                                        new CornerRadii(20),
+//                                        //slightly larger than the label
+//                                        new Insets(-10))));     
+                //more than one fill
+                text.setBackground(
+                        new Background(
+                                new BackgroundFill(
+                                        Color.BLUE,
+                                        new CornerRadii(20),
+                                        //slightly larger than the label
+                                        new Insets(-10)),
+                                new BackgroundFill(
+                                        Color.LIGHTBLUE,
+                                        new CornerRadii(10),
+                                        //slightly larger than the label
+                                        new Insets(-5))));     
                 new GlowBackground(text, Color.WHITE, Color.YELLOW, 20)
+                        .setDelay(Duration.millis(500))
                         .setCycleCount(3)
-                        .setSpeed(0.5)
                         .setResetOnFinished(true)
                         .play();
-                break; 
-                
+                break;
+
             default:
                 System.err.println("No animation binded to this button");
                 break;
         }
-        
+
     }
 
 }
