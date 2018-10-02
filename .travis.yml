@@ -10,7 +10,7 @@ jdk:
 stages:
   - name: build
   - name: snapshot
-    if: branch = master
+    if: branch = master AND type != pull_request
   - name: release
     if: branch = release
 
