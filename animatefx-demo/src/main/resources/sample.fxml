@@ -439,6 +439,7 @@
                            </padding>
                            <children>
                               <Button mnemonicParsing="false" onAction="#handleClick" text="TextGlow" />
+                              <Button mnemonicParsing="false" onAction="#handleClick" text="BackgroundGlow" />
                            </children>
                         </HBox>
                      </children>

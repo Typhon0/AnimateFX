@@ -366,6 +366,13 @@ public class Controller {
                         .setResetOnFinished(true)
                         .play();
                 break; 
+            case "BackgroundGlow":
+                new GlowBackground(text, Color.WHITE, Color.YELLOW, 20)
+                        .setCycleCount(3)
+                        .setSpeed(0.5)
+                        .setResetOnFinished(true)
+                        .play();
+                break; 
                 
             default:
                 System.err.println("No animation binded to this button");
