@@ -2,9 +2,6 @@ package animatefx.animation;
 
 import javafx.animation.Animation;
 import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
@@ -184,9 +181,4 @@ public abstract class AnimationFX {
         return this;
     }
 
-
-    public AnimationFX setCycleDuration(int value) {
-        this.timeline.setCycleCount(value);
-        return this;
-    }
 }

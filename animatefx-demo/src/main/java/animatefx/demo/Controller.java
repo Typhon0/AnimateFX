@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 
 public class Controller {
@@ -23,7 +22,7 @@ public class Controller {
         switch (s) {
             /*Attention seekers**/
             case "Bounce":
-                new Bounce(text).setCycleDuration(2).setCycleCount(2).play();
+                new Bounce(text).setCycleCount(2).play();
 
                 break;
             case "Flash":

@@ -23,10 +23,6 @@ public class Bounce extends AnimationFX {
         super(node);
     }
 
-    public Bounce(Node node, boolean start) {
-        super(node);
-    }
-
     @Override
     public AnimationFX resetNode() {
         getNode().setTranslateY(0);
