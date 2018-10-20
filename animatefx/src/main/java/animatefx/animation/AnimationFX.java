@@ -181,4 +181,13 @@ public abstract class AnimationFX {
         return this;
     }
 
+    /**
+     * Set event when the animation ended.
+     *
+     * @param value
+     */
+    public final void setOnFinished(EventHandler<ActionEvent> value) {
+        this.timeline.setOnFinished(value);
+    }
+
 }
