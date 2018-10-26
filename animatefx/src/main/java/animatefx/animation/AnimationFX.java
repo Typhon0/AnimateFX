@@ -2,6 +2,8 @@ package animatefx.animation;
 
 import javafx.animation.Animation;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
@@ -179,6 +181,15 @@ public abstract class AnimationFX {
     public AnimationFX setDelay(Duration value) {
         this.timeline.setDelay(value);
         return this;
+    }
+
+    /**
+     * Set event when the animation ended.
+     *
+     * @param value
+     */
+    public final void setOnFinished(EventHandler<ActionEvent> value) {
+        this.timeline.setOnFinished(value);
     }
 
 }
