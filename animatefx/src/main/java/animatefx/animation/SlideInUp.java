@@ -21,6 +21,9 @@ public class SlideInUp extends AnimationFX {
         super(node);
     }
 
+    public SlideInUp() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

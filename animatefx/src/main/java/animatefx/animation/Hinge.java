@@ -26,6 +26,9 @@ public class Hinge extends AnimationFX {
 
     }
 
+    public Hinge() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

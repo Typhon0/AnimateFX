@@ -21,6 +21,9 @@ public class Swing extends AnimationFX {
         super(node);
     }
 
+    public Swing() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

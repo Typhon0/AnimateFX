@@ -22,6 +22,9 @@ public class ZoomInDown extends AnimationFX {
         super(node);
     }
 
+    public ZoomInDown() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

@@ -21,6 +21,9 @@ public class FadeOutLeftBig extends AnimationFX {
         super(node);
     }
 
+    public FadeOutLeftBig() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

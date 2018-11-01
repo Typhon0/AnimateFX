@@ -20,6 +20,9 @@ public class Wobble extends AnimationFX {
         super(node);
     }
 
+    public Wobble() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

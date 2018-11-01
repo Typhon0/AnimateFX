@@ -21,6 +21,9 @@ public class FadeInDown extends AnimationFX{
         super(node);
     }
 
+    public FadeInDown() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

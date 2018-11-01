@@ -21,6 +21,9 @@ public class RollIn extends AnimationFX {
         super(node);
     }
 
+    public RollIn() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

@@ -20,6 +20,9 @@ public class BounceOut extends AnimationFX {
         super(node);
     }
 
+    public BounceOut() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

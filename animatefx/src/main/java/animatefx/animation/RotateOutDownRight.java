@@ -23,6 +23,9 @@ public class RotateOutDownRight extends AnimationFX {
         super(node);
     }
 
+    public RotateOutDownRight() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

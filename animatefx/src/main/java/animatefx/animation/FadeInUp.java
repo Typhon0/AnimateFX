@@ -21,6 +21,9 @@ public class FadeInUp extends AnimationFX {
         super(node);
     }
 
+    public FadeInUp() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

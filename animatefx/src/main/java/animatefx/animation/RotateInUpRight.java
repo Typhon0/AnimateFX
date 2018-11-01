@@ -21,6 +21,9 @@ public class RotateInUpRight extends AnimationFX {
         super(node);
     }
 
+    public RotateInUpRight() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

@@ -18,6 +18,8 @@ public abstract class AnimationFX {
      * {@code stop()} method is called.
      */
     public static final int INDEFINITE = -1;
+
+
     private Timeline timeline;
     private boolean reset;
     private Node node;
@@ -30,15 +32,19 @@ public abstract class AnimationFX {
      * @param node the node to affect
      */
     public AnimationFX(Node node) {
+        super();
+        setNode(node);
+
+    }
+
+    /**
+     * Default constructor
+     */
+    public AnimationFX() {
         hasNextAnimation = false;
         this.reset = false;
-        this.node = node;
-        initTimeline();
-        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.equals(Animation.Status.STOPPED)) {
-                onFinished();
-            }
-        });
+
+
     }
 
     /**
@@ -63,9 +69,9 @@ public abstract class AnimationFX {
      * @return
      */
     public AnimationFX playOnFinished(AnimationFX animation) {
-        this.hasNextAnimation = true;
-        this.nextAnimation = animation;
+        setNextAnimation(animation);
         return this;
+
     }
 
     /**
@@ -131,6 +137,13 @@ public abstract class AnimationFX {
 
     public void setNode(Node node) {
         this.node = node;
+        initTimeline();
+        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals(Animation.Status.STOPPED)) {
+                onFinished();
+            }
+
+        });
     }
 
     public AnimationFX getNextAnimation() {

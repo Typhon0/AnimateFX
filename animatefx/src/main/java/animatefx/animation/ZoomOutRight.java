@@ -21,6 +21,9 @@ public class ZoomOutRight extends AnimationFX {
         super(node);
     }
 
+    public ZoomOutRight() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

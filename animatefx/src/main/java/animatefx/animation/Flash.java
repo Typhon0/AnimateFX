@@ -21,6 +21,9 @@ public class Flash extends AnimationFX {
         super(node);
     }
 
+    public Flash() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

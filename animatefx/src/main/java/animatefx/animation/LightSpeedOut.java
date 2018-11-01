@@ -25,6 +25,9 @@ public class LightSpeedOut extends AnimationFX {
         super(node);
     }
 
+    public LightSpeedOut() {
+    }
+
     @Override
     AnimationFX resetNode() {
         shear.setX(0);

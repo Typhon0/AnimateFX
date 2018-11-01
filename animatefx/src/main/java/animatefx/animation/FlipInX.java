@@ -26,6 +26,9 @@ public class FlipInX extends AnimationFX {
         super(node);
     }
 
+    public FlipInX() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

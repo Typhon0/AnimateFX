@@ -23,6 +23,9 @@ public class BounceIn extends AnimationFX {
 
     }
 
+    public BounceIn() {
+        super();
+    }
 
     @Override
     AnimationFX resetNode() {
@@ -31,7 +34,7 @@ public class BounceIn extends AnimationFX {
 
     @Override
     void initTimeline() {
-       setTimeline( new Timeline(
+        setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().opacityProperty(), 0, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),
                         new KeyValue(getNode().scaleXProperty(), 0.3, Interpolator.SPLINE(0.215, 0.610, 0.355, 1.000)),

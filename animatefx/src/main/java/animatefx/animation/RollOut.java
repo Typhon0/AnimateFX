@@ -21,6 +21,9 @@ public class RollOut extends AnimationFX {
         super(node);
     }
 
+    public RollOut() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

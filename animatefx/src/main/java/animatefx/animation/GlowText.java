@@ -33,6 +33,12 @@ public class GlowText extends AnimationFX {
         );
     }
 
+    public GlowText(Paint originalPaint, Paint colorA, Paint colorB) {
+        this.originalPaint = originalPaint;
+        this.colorA = colorA;
+        this.colorB = colorB;
+    }
+
     @Override
     public Labeled getNode() {
         return (Labeled) super.getNode();

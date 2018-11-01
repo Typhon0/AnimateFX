@@ -22,6 +22,9 @@ public class JackInTheBox extends AnimationFX {
 
     }
 
+    public JackInTheBox() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

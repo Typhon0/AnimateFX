@@ -20,6 +20,9 @@ public class BounceOutUp extends AnimationFX {
         super(node);
     }
 
+    public BounceOutUp() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setTranslateY(0);

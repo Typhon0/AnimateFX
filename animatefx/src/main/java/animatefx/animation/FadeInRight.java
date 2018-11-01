@@ -21,6 +21,9 @@ public class FadeInRight extends AnimationFX{
         super(node);
     }
 
+    public FadeInRight() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

@@ -22,6 +22,9 @@ public class RotateOutUpLeft extends AnimationFX {
         super(node);
     }
 
+    public RotateOutUpLeft() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

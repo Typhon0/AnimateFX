@@ -22,6 +22,9 @@ public class LightSpeedIn extends AnimationFX {
         super(node);
     }
 
+    public LightSpeedIn() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

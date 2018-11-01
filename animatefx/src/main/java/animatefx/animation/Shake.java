@@ -21,6 +21,9 @@ public class Shake extends AnimationFX {
         super(node);
     }
 
+    public Shake() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

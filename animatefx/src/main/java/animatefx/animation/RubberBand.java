@@ -22,6 +22,9 @@ public class RubberBand extends AnimationFX {
         super(node);
     }
 
+    public RubberBand() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

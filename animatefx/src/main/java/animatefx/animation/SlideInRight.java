@@ -21,6 +21,9 @@ public class SlideInRight extends AnimationFX {
         super(node);
     }
 
+    public SlideInRight() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

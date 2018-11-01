@@ -21,6 +21,9 @@ public class Tada extends AnimationFX {
         super(node);
     }
 
+    public Tada() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

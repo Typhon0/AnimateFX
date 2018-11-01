@@ -21,6 +21,9 @@ public class RotateInDownLeft extends AnimationFX {
         super(node);
     }
 
+    public RotateInDownLeft() {
+    }
+
     @Override
     AnimationFX resetNode() {
 

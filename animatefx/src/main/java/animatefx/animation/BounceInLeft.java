@@ -21,6 +21,9 @@ public class BounceInLeft extends AnimationFX {
         super(node);
     }
 
+    public BounceInLeft() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

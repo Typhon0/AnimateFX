@@ -21,6 +21,9 @@ public class FadeOutUp extends AnimationFX {
         super(node);
     }
 
+    public FadeOutUp() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

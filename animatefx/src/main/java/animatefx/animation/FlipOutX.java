@@ -25,6 +25,9 @@ public class FlipOutX extends AnimationFX {
         super(node);
     }
 
+    public FlipOutX() {
+    }
+
     @Override
     AnimationFX resetNode() {
         getNode().setOpacity(1);

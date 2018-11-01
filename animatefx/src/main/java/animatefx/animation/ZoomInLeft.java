@@ -22,6 +22,9 @@ public class ZoomInLeft extends AnimationFX {
         super(node);
     }
 
+    public ZoomInLeft() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

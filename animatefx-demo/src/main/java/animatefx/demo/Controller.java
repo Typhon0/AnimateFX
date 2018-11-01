@@ -1,6 +1,7 @@
 package animatefx.demo;
 
 import animatefx.animation.*;
+import animatefx.util.SequentialAnimationFX;
 import javafx.animation.Animation;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -27,8 +28,7 @@ public class Controller {
         switch (s) {
             /*Attention seekers**/
             case "Bounce":
-                new Bounce(text).setCycleCount(2).play();
-
+                //new Bounce(text).setCycleCount(2).play();
                 break;
             case "Flash":
                 new Flash(text).play();
@@ -381,12 +381,19 @@ public class Controller {
                                         Color.LIGHTBLUE,
                                         new CornerRadii(10),
                                         //slightly larger than the label
-                                        new Insets(-5))));     
+                                        new Insets(-5))));
                 new GlowBackground(text, Color.WHITE, Color.YELLOW, 20)
                         .setDelay(Duration.millis(500))
                         .setCycleCount(3)
                         .setResetOnFinished(true)
                         .play();
+                break;
+
+            case "SequentialAnimation":
+                SequentialAnimationFX sequentialAnimationFX = new SequentialAnimationFX(text, new BounceIn(), new BounceOut());
+                sequentialAnimationFX.setResetOnFinished(true);
+                sequentialAnimationFX.play();
+
                 break;
 
             default:

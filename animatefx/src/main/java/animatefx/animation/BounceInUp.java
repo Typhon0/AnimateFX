@@ -21,6 +21,9 @@ public class BounceInUp extends AnimationFX{
         super(node);
     }
 
+    public BounceInUp() {
+    }
+
     @Override
     AnimationFX resetNode() {
         return this;

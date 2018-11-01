@@ -21,15 +21,15 @@ import javafx.util.Duration;
 public class GlowBackground extends AnimationFX {
 
     private final Background originalBackground;
-    private final CornerRadii originalRadii;
-    private final Insets originalInsets;
+    private CornerRadii originalRadii;
+    private Insets originalInsets;
 
     /**
      * Constructs the animation
      *
-     * @param node the node to animate
-     * @param colorA the color to start with
-     * @param colorB the other color
+     * @param node       the node to animate
+     * @param colorA     the color to start with
+     * @param colorB     the other color
      * @param colorSteps how many interpolations between the two colors
      */
     public GlowBackground(Region node, Color colorA, Color colorB, int colorSteps) {
@@ -43,7 +43,7 @@ public class GlowBackground extends AnimationFX {
             originalRadii = CornerRadii.EMPTY;
             originalInsets = Insets.EMPTY;
         }
-        
+
         int totalFrames = colorSteps * 2;
         double millisPerFrame = 1000 / totalFrames;
         for (int i = 0; i < totalFrames; i++) {
@@ -63,6 +63,11 @@ public class GlowBackground extends AnimationFX {
         }
 
     }
+
+    public GlowBackground(Background originalBackground) {
+        this.originalBackground = originalBackground;
+    }
+
 
     @Override
     public Region getNode() {

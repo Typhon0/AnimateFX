@@ -22,6 +22,9 @@ public class Jello extends AnimationFX {
         super(node);
     }
 
+    public Jello() {
+    }
+
     @Override
     AnimationFX resetNode() {
 
