@@ -18,8 +18,6 @@ public abstract class AnimationFX {
      * {@code stop()} method is called.
      */
     public static final int INDEFINITE = -1;
-
-
     private Timeline timeline;
     private boolean reset;
     private Node node;

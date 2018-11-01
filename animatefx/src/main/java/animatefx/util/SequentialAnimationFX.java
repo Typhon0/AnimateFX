@@ -21,6 +21,7 @@ public class SequentialAnimationFX {
 
     /**
      * The node property
+     *
      * @return node property
      */
     public final ObjectProperty<Node> nodeProperty() {
@@ -39,6 +40,11 @@ public class SequentialAnimationFX {
 
     public SequentialAnimationFX(Node node, AnimationFX... animations) {
         nodeProperty().set(node);
+        getAnimation().setAll(animations);
+        reset = false;
+    }
+
+    public SequentialAnimationFX(AnimationFX... animations) {
         getAnimation().setAll(animations);
         reset = false;
     }
@@ -85,20 +91,23 @@ public class SequentialAnimationFX {
      */
     private void initAnimations() {
         for (int i = 0; i < getAnimation().size() - 1; i++) {
-            if (getAnimation().get(i).getNode() == null) {
-                getAnimation().get(i).setNode(nodeProperty().get());
+            if (nodeProperty().get() != null) {
+                if (getAnimation().get(i).getNode() == null) {
+                    getAnimation().get(i).setNode(nodeProperty().get());
+                }
             }
             if (getAnimation().get(i + 1) != null) {
                 getAnimation().get(i).playOnFinished(getAnimation().get(i + 1));
             }
-
         }
         // config last animation
-        if (getAnimation().get(getAnimation().size() - 1).getNode() == null) {
-            getAnimation().get(getAnimation().size() - 1).setNode(nodeProperty().get());
-            if (reset) {
-                getAnimation().get(getAnimation().size() - 1).setResetOnFinished(true);
+        if (nodeProperty().get() != null) {
+            if (getAnimation().get(getAnimation().size() - 1).getNode() == null) {
+                getAnimation().get(getAnimation().size() - 1).setNode(nodeProperty().get());
             }
+        }
+        if (reset) {
+            getAnimation().get(getAnimation().size() - 1).setResetOnFinished(true);
         }
     }
 
@@ -114,6 +123,7 @@ public class SequentialAnimationFX {
 
     /**
      * Get the status
+     *
      * @return animations status
      */
     public Animation.Status getStatus() {
@@ -122,6 +132,7 @@ public class SequentialAnimationFX {
 
     /**
      * Set if the node have to reset at the end
+     *
      * @param value true to reset
      */
     public void setResetOnFinished(boolean value) {
