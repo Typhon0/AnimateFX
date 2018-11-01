@@ -45,6 +45,26 @@ dependencies {
     compile('group.id:animatefx:1.2.0-SNAPSHOT')
 }
 ```
+
+### Maven
+
+```
+ <repositories>
+ 	<repository>
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
+        </repository>
+    </repositories>
+    
+ <dependencies>
+        <dependency>
+            <groupId>io.github.typhon0</groupId>
+            <artifactId>AnimateFX</artifactId>
+            <version>1.2.0-SNAPSHOT</version>
+        </dependency>
+ </dependencies>
+```
 # Quick start
 
 #### Basic
