@@ -359,34 +359,13 @@ public class Controller {
                         .play();
                 break;
             case "BackgroundGlow":
-                //no background
-//                text.setBackground(null);
-                //one backgroundfille
-//                text.setBackground(
-//                        new Background(
-//                                new BackgroundFill(
-//                                        Color.LIGHTBLUE,
-//                                        new CornerRadii(20),
-//                                        //slightly larger than the label
-//                                        new Insets(-10))));     
-                //more than one fill
-                text.setBackground(
-                        new Background(
-                                new BackgroundFill(
-                                        Color.BLUE,
-                                        new CornerRadii(20),
-                                        //slightly larger than the label
-                                        new Insets(-10)),
-                                new BackgroundFill(
-                                        Color.LIGHTBLUE,
-                                        new CornerRadii(10),
-                                        //slightly larger than the label
-                                        new Insets(-5))));
+
                 new GlowBackground(text, Color.WHITE, Color.YELLOW, 20)
                         .setDelay(Duration.millis(500))
                         .setCycleCount(3)
                         .setResetOnFinished(true)
                         .play();
+
                 break;
 
             case "SequentialAnimation":
