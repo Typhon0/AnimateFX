@@ -89,4 +89,4 @@ Please see  [CONTRIBUTING.md](https://github.com/Typhon0/AnimateFX/blob/master/C
 
 # Credits
 
-Animations are inspired from awesome project [Animate.css](https://github.com/daneden/animate.css)
+Animations are inspired from the awesome project [Animate.css](https://github.com/daneden/animate.css)

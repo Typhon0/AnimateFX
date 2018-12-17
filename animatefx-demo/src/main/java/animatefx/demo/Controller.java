@@ -1,17 +1,12 @@
 package animatefx.demo;
 
 import animatefx.animation.*;
+import animatefx.util.ParallelAnimationFX;
 import animatefx.util.SequentialAnimationFX;
-import javafx.animation.Animation;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -367,14 +362,15 @@ public class Controller {
                         .play();
 
                 break;
-
             case "SequentialAnimation":
-                SequentialAnimationFX sequentialAnimationFX = new SequentialAnimationFX(text, new BounceIn(), new BounceOut());
+                SequentialAnimationFX sequentialAnimationFX = new SequentialAnimationFX(text, new BounceIn(), new Flash());
                 sequentialAnimationFX.setResetOnFinished(true);
                 sequentialAnimationFX.play();
-
                 break;
-
+            case "ParallelAnimation":
+                ParallelAnimationFX parallelAnimationFX = new ParallelAnimationFX(text, new BounceIn(), new Flash());
+                parallelAnimationFX.play();
+                break;
             default:
                 System.err.println("No animation binded to this button");
                 break;
