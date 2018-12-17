@@ -20,7 +20,7 @@ Features:
 ### Gradle
 ```
 dependencies {
-compile 'io.github.typhon0:AnimateFX:1.2.0'
+compile 'io.github.typhon0:AnimateFX:1.2.1'
 }
 ```
 ### Maven
@@ -29,7 +29,7 @@ compile 'io.github.typhon0:AnimateFX:1.2.0'
 <dependency>
   <groupId>io.github.typhon0</groupId>
   <artifactId>AnimateFX</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile('group.id:animatefx:1.2.0-SNAPSHOT')
+    compile('group.id:animatefx:1.2.1-SNAPSHOT')
 }
 ```
 
@@ -61,7 +61,7 @@ dependencies {
         <dependency>
             <groupId>io.github.typhon0</groupId>
             <artifactId>AnimateFX</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.1-SNAPSHOT</version>
         </dependency>
  </dependencies>
 ```
