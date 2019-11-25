@@ -1,5 +1,5 @@
 language: java
-dist: bionic
+dist: trusty
 install: true
 before_install:
  - chmod +x gradlew
