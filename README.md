@@ -86,17 +86,6 @@ new Bounce(text).play();
 
 Please see  [CONTRIBUTING.md](https://github.com/Typhon0/AnimateFX/blob/master/CONTRIBUTING.md) for more information.
 
-# Using AnimateFX ?
-
-Fork the repository and update the "Project using AnimateFX" section in the following format adding your project details and do a Pull Request!
-
-    Project_Name : Brief_Description
-
-
-# Projects using AnimateFX
-
-
-
 # Credits
 
 Animations are inspired from the awesome project [Animate.css](https://github.com/daneden/animate.css)
