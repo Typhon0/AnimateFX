@@ -27,13 +27,16 @@ public class Jello extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-
+        shear.setX(0);
+        shear.setY(0);
         return this;
     }
 
+    private Shear shear;
+
     @Override
     void initTimeline() {
-        Shear shear = new Shear();
+         shear = new Shear();
         Bounds bounds = getNode().getLayoutBounds();
         shear.setPivotX(bounds.getWidth() / 2);
         shear.setPivotY(bounds.getHeight() / 2);

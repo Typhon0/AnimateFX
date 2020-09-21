@@ -26,7 +26,7 @@ public class SlideInUp extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-
+        getNode().setTranslateY(0);
         return this;
     }
 

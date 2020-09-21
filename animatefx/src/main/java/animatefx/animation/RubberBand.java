@@ -27,6 +27,9 @@ public class RubberBand extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setScaleX(1);
+        getNode().setScaleY(1);
+        getNode().setScaleZ(1);
         return this;
     }
 

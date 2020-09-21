@@ -24,14 +24,17 @@ public class Swing extends AnimationFX {
     public Swing() {
     }
 
+    private Rotate rotation;
+
     @Override
     AnimationFX resetNode() {
+        rotation.setAngle(0);
         return this;
     }
 
     @Override
     void initTimeline() {
-        Rotate rotation = new Rotate();
+        rotation = new Rotate();
         rotation.setPivotX(getNode().getLayoutBounds().getWidth() / 2.0);
         rotation.setPivotY(-getNode().getLayoutBounds().getHeight());
         getNode().getTransforms().add(rotation);

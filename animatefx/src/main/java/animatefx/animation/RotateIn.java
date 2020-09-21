@@ -26,6 +26,8 @@ public class RotateIn extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setRotate(0);
+        getNode().setOpacity(1);
         return this;
     }
 

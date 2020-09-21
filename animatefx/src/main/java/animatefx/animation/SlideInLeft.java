@@ -26,6 +26,7 @@ public class SlideInLeft extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setTranslateX(0);
         return this;
     }
 

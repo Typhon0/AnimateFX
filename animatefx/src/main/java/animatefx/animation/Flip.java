@@ -31,6 +31,11 @@ public class Flip extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setRotate(0);
+        getNode().setScaleX(1);
+        getNode().setScaleY(1);
+        getNode().setScaleZ(1);
+        getNode().setTranslateZ(0);
         return this;
     }
 

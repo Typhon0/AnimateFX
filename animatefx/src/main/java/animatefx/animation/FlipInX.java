@@ -31,6 +31,8 @@ public class FlipInX extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setOpacity(1);
+        getNode().setRotate(0);
         return this;
     }
 

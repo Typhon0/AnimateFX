@@ -26,6 +26,7 @@ public class FadeIn extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setOpacity(1);
         return this;
     }
 

@@ -25,7 +25,8 @@ public class Wobble extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
-
+        getNode().setTranslateX(0);
+        getNode().setRotate(0);
         return this;
     }
 

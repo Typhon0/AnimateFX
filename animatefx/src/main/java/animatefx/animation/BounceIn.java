@@ -29,6 +29,9 @@ public class BounceIn extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setOpacity(1);
+        getNode().setScaleX(1);
+        getNode().setScaleY(1);
         return this;
     }
 

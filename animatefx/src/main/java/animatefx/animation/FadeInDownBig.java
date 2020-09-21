@@ -26,6 +26,8 @@ public class FadeInDownBig extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+        getNode().setOpacity(1);
+        getNode().setTranslateY(0);
         return this;
     }
 

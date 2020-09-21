@@ -24,16 +24,19 @@ public class RotateInDownRight extends AnimationFX {
     public RotateInDownRight() {
     }
 
+    private  Rotate rotate;
+
     @Override
     AnimationFX resetNode() {
-
+        rotate.setAngle(0);
+        getNode().setOpacity(1);
         return this;
     }
 
     @Override
     void initTimeline() {
         getNode().setRotationAxis(Rotate.Z_AXIS);
-        Rotate rotate = new Rotate(0, getNode().getBoundsInLocal().getWidth(), getNode().getBoundsInLocal().getHeight());
+        rotate = new Rotate(0, getNode().getBoundsInLocal().getWidth(), getNode().getBoundsInLocal().getHeight());
         getNode().getTransforms().add(rotate);
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),

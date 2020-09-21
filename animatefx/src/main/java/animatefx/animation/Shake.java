@@ -26,6 +26,8 @@ public class Shake extends AnimationFX {
 
     @Override
     AnimationFX resetNode() {
+
+        getNode().setTranslateX(0);
         return this;
     }
 
