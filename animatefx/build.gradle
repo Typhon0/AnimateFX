@@ -9,7 +9,7 @@ repositories {
     jcenter()
 }
 
-version = '1.2.1' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
+version = '1.2.2' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
 sourceCompatibility = 1.8
 
 dependencies {
