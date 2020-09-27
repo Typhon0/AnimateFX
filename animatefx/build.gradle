@@ -3,6 +3,8 @@ plugins {
     id "com.jfrog.artifactory" version"4.7.3"
     id "maven-publish"
     id "java"
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
 repositories {
@@ -13,6 +15,11 @@ version = '1.2.2' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHO
 sourceCompatibility = 1.8
 
 dependencies {
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.web' ]
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
