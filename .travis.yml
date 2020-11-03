@@ -4,8 +4,7 @@ install: true
 before_install:
  - chmod +x gradlew
 jdk:
-  - oraclejdk8
-  - oraclejdk9
+  - openjdk11
 
 stages:
   - name: build
