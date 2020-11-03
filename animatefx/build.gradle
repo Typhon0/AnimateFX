@@ -1,9 +1,8 @@
 plugins {
-    id "com.jfrog.bintray" version "1.8.1"
-    id "com.jfrog.artifactory" version"4.7.3"
+    id "com.jfrog.bintray" version "1.8.5"
+    id "com.jfrog.artifactory" version"4.18.0"
     id "maven-publish"
     id "java"
-    id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
