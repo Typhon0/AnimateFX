@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/Typhon0/AnimateFX.svg?branch=master)](https://travis-ci.org/Typhon0/AnimateFX)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Bintray](https://api.bintray.com/packages/typhon0/AnimateFX/animatefx/images/download.svg)](https://bintray.com/typhon0/AnimateFX/animatefx)
 [![javadoc](https://javadoc.io/badge2/io.github.typhon0/AnimateFX/javadoc.svg)](https://javadoc.io/doc/io.github.typhon0/AnimateFX)
 [![Join the chat at https://gitter.im/AnimateFX/Lobby](https://badges.gitter.im/AnimateFX/Lobby.svg)](https://gitter.im/AnimateFX/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -18,11 +17,17 @@ Features:
 
 # Installation
 
-### Gradle
+### Gradle (7.x)
+
 
 ```
+plugins {
+    ...
+    id 'java-library'
+}
+
 dependencies {
-compile 'io.github.typhon0:AnimateFX:1.2.2'
+    api 'io.github.typhon0:AnimateFX:1.2.2'
 }
 ```
 
@@ -39,15 +44,20 @@ compile 'io.github.typhon0:AnimateFX:1.2.2'
 
 ## Snapshot
 
-### Gradle
+### Gradle (7.x)
 
 ```
+plugins {
+    ...
+    id 'java-library'
+}
+
 repositories {
-	maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
+	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {
-    compile('group.id:animatefx:1.2.2-SNAPSHOT')
+    api 'io.github.typhon0:AnimateFX:1.2.2-SNAPSHOT' 
 }
 ```
 
@@ -58,7 +68,7 @@ dependencies {
  	<repository>
             <id>snapshots</id>
             <name>libs-snapshot</name>
-            <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
