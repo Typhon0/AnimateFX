@@ -50,6 +50,7 @@ jobs:
           arguments: build
 
       - name: Publish to Sonatype
+        if: ${{ github.event_name != 'pull_request' }}
         uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
