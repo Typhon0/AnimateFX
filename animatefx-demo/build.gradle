@@ -1,24 +1,29 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'java-library'
 }
 
 mainClassName = "animatefx.demo.Main"
 
 repositories {
-    jcenter()
-}
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 
+}
+group = rootProject.group
+version = rootProject.version
 sourceCompatibility=1.8
 targetCompatibility=1.8
 
 dependencies {
-    compile project(":animatefx")
+   // implementation project(":animatefx")
+    api 'io.github.typhon0:AnimateFX:1.2.2-SNAPSHOT'
 
 }
 
 javafx {
-    version = "11"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.web' ]
 }
 

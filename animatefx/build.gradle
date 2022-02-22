@@ -1,66 +1,58 @@
 plugins {
-    id "com.jfrog.bintray" version "1.8.5"
-    id "com.jfrog.artifactory" version"4.18.0"
-    id "maven-publish"
     id "java"
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'maven-publish'
+    id 'signing'
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-version = '1.2.2' + (Boolean.valueOf(System.getProperty("snapshot")) ? "-SNAPSHOT" : "")
+group = rootProject.group
+version = rootProject.version
 sourceCompatibility = 1.8
 
 dependencies {
 }
 
 javafx {
-    version = "11"
-    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.web' ]
+    version = "17"
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web']
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+task sourcesJar(type: Jar) {
+    getArchiveClassifier().set('sources')
     from sourceSets.main.allSource
 }
 
-javadoc.failOnError = false
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
+task javadocJar(type: Jar) {
+    getArchiveClassifier().set('javadoc')
+    from javadoc
+}
+
+signing {
+    useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.key"],
+            rootProject.ext["signing.password"],
+    )
+    sign publishing.publications
 }
 
 artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-def pomConfig = {
-    licenses {
-        license {
-            name "The Apache Software License, Version 2.0"
-            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
-            distribution "repo"
-        }
-    }
-    developers {
-        developer {
-            id "typhon0"
-            name "Loïc Sculier"
-            email "sculier.loic@gmail.com"
-        }
-    }
-
-    scm {
-        url "https://github.com/typhon0/animatefx"
-    }
+    archives javadocJar, sourcesJar
 }
 
 publishing {
     publications {
-        mavenPublication(MavenPublication) {
+        release(MavenPublication) {
             from components.java
             artifact sourcesJar {
                 classifier "sources"
@@ -68,57 +60,37 @@ publishing {
             artifact javadocJar {
                 classifier "javadoc"
             }
-            groupId 'io.github.typhon0'
-            artifactId 'AnimateFX'
-            version project.version
-            pom.withXml {
-                def root = asNode()
-                root.appendNode('description', 'A library of ready-to-use animations for JavaFX')
-                root.appendNode('name', 'AnimateFX')
-                root.appendNode('url', 'https://github.com/typhon0/AnimateFX')
-                root.children().last() + pomConfig
+            groupId = "io.github.typhon0"
+            artifactId = "AnimateFX"
+            version = project.version
+            pom {
+                description = 'A library of ready-to-use animations for JavaFX'
+                url = 'https://github.com/typhon0/AnimateFX'
+                name = "AnimateFX"
+                version=project.version
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = "repo"
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'typhon0'
+                        name = 'Loïc Sculier'
+                        email = 'sculier.loic@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:github.com/Typhon0/AnimateFX.git'
+                    developerConnection = 'scm:git:ssh://github.com/Typhon0/AnimateFX.git'
+                    url = 'https://github.com/Typhon0/AnimateFX/tree/master'
+                }
             }
         }
     }
-}
-
-bintray {
-    user = System.getProperty('bintray.user')
-    key = System.getProperty('bintray.key')
-    publications = ['mavenPublication']
-
-    pkg {
-        repo = 'AnimateFX'
-        name = 'animatefx'
-        userOrg = 'typhon0'
-        licenses = ['Apache-2.0']
-        publish = true
-        vcsUrl = 'https://github.com/typhon0/animatefx.git'
-        version {
-            name = project.version
-            desc = System.getProperty("build.number")
-            released  = new Date()
-        }
-    }
 
 }
 
-artifactory {
-    contextUrl = 'http://oss.jfrog.org'
-    publish {
-        repository {
-            repoKey = 'oss-snapshot-local'
-            username = System.getProperty('bintray.user')
-            password = System.getProperty('bintray.key')
-        }
-        defaults {
-            publications('mavenPublication')
-            publishArtifacts = true
-            publishPom = true
-        }
-    }
-    resolve {
-        repoKey = 'jcenter'
-    }
-    clientConfig.info.setBuildNumber(System.getProperty('build.number'))
-}
+

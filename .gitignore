@@ -96,3 +96,4 @@ Thumbs.db
 .classpath
 .settings/
 .nb-gradle/
+local.properties

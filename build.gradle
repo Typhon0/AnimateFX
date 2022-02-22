@@ -1,16 +1,38 @@
+plugins {
+    id "java"
+    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
+    id "me.qoomon.git-versioning" version "5.1.5"
+}
 subprojects {
-    apply plugin: 'java'
-
     repositories {
         mavenCentral()
-        jcenter()
     }
 }
+apply from: "${rootDir}/publish-root.gradle"
+group = "io.github.typhon0"
 
+version = '1.2.2'
+
+gitVersioning.apply {
+    refs {
+        branch('release') {
+            version = '${version}'
+        }
+        branch ('master'){
+            version = '${version}-SNAPSHOT'
+        }
+        tag('v(?<version>.*)') {
+            version = '${ref.version}'
+        }
+    }
+    // optional fallback configuration in case of no matching ref configuration
+    rev {
+        version = '${commit}'
+    }
+}
 
 allprojects {
     tasks.withType(Test).configureEach {
         forkEvery = 100
     }
-
 }
