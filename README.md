@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/Typhon0/AnimateFX.svg?branch=master)](https://travis-ci.org/Typhon0/AnimateFX)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![AnimateFX CI](https://github.com/Typhon0/AnimateFX/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Typhon0/AnimateFX/actions/workflows/ci.yml)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![javadoc](https://javadoc.io/badge2/io.github.typhon0/AnimateFX/javadoc.svg)](https://javadoc.io/doc/io.github.typhon0/AnimateFX)
 [![Join the chat at https://gitter.im/AnimateFX/Lobby](https://badges.gitter.im/AnimateFX/Lobby.svg)](https://gitter.im/AnimateFX/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
