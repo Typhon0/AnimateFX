@@ -68,7 +68,6 @@ public class Flip extends AnimationFX {
                         new KeyValue(getNode().translateZProperty(), 0, Interpolator.EASE_IN)
                 )
         ));
-        //TODO
         getTimeline().setOnFinished(event -> getNode().getScene().setCamera(new ParallelCamera()));
 
     }
