@@ -17,9 +17,7 @@ sourceCompatibility=1.8
 targetCompatibility=1.8
 
 dependencies {
-   // implementation project(":animatefx")
-    api 'io.github.typhon0:AnimateFX:1.2.3-SNAPSHOT'
-
+   implementation project(":animatefx")
 }
 
 javafx {
