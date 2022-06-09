@@ -18,7 +18,6 @@ Features:
 
 ### Gradle (7.x)
 
-
 ```
 plugins {
     ...
@@ -26,7 +25,7 @@ plugins {
 }
 
 dependencies {
-    api 'io.github.typhon0:AnimateFX:1.2.2'
+    api 'io.github.typhon0:AnimateFX:1.2.3'
 }
 ```
 
@@ -36,7 +35,7 @@ dependencies {
 <dependency>
   <groupId>io.github.typhon0</groupId>
   <artifactId>AnimateFX</artifactId>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -56,7 +55,7 @@ repositories {
 }
 
 dependencies {
-    api 'io.github.typhon0:AnimateFX:1.2.2-SNAPSHOT' 
+    api 'io.github.typhon0:AnimateFX:1.2.3-SNAPSHOT'
 }
 ```
 
@@ -75,7 +74,7 @@ dependencies {
         <dependency>
             <groupId>io.github.typhon0</groupId>
             <artifactId>AnimateFX</artifactId>
-            <version>1.2.2-SNAPSHOT</version>
+            <version>1.2.3-SNAPSHOT</version>
         </dependency>
  </dependencies>
 ```

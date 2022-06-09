@@ -11,7 +11,7 @@ subprojects {
 apply from: "${rootDir}/publish-root.gradle"
 group = "io.github.typhon0"
 
-version = '1.2.2'
+version = '1.2.3'
 
 gitVersioning.apply {
     refs {
