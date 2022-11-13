@@ -75,13 +75,13 @@ public class GlowBackground extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setBackground(originalBackground);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline()); //will be populated at the end of constructor
     }
 

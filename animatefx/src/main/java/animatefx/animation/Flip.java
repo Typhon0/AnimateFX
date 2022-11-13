@@ -30,7 +30,7 @@ public class Flip extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setRotate(0);
         getNode().setScaleX(1);
         getNode().setScaleY(1);
@@ -40,7 +40,7 @@ public class Flip extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         getNode().getScene().setCamera(new PerspectiveCamera());
         getNode().setRotationAxis(Y_AXIS);
         setTimeline(new Timeline(

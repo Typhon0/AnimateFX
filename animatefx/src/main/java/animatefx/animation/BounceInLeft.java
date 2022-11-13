@@ -25,14 +25,14 @@ public class BounceInLeft extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setTranslateX(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         double startX = -getNode().localToScene(0, 0).getX() - getNode().getBoundsInParent().getWidth();
        setTimeline(
                 new Timeline(

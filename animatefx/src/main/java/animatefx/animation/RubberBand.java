@@ -26,7 +26,7 @@ public class RubberBand extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setScaleX(1);
         getNode().setScaleY(1);
         getNode().setScaleZ(1);
@@ -34,7 +34,7 @@ public class RubberBand extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().scaleXProperty(), 1, AnimateFXInterpolator.EASE),

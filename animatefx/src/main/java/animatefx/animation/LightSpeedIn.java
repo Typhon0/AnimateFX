@@ -27,7 +27,7 @@ public class LightSpeedIn extends AnimationFX {
     private  Shear shear;
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         shear.setX(0);
         shear.setY(0);
         getNode().setTranslateX(0);
@@ -36,7 +36,7 @@ public class LightSpeedIn extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
          shear = new Shear();
         getNode().getTransforms().add(shear);
         setTimeline(new Timeline(

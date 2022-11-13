@@ -25,7 +25,7 @@ public class Tada extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setScaleX(1);
         getNode().setScaleY(1);
         getNode().setScaleZ(1);
@@ -34,7 +34,7 @@ public class Tada extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         getNode().setRotationAxis(Rotate.Z_AXIS);
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),

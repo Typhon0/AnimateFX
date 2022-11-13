@@ -30,7 +30,7 @@ public class Hinge extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setTranslateY(0);
         rotate.setAngle(0);
@@ -38,7 +38,7 @@ public class Hinge extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         double endY = getNode().getScene().getHeight() - getNode().localToScene(0, 0).getY();
         rotate = new Rotate(0, 0, 0);
         setTimeline(new Timeline(

@@ -25,7 +25,7 @@ public class RollIn extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setTranslateX(0);
         getNode().setRotate(0);
@@ -33,7 +33,7 @@ public class RollIn extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().opacityProperty(), 0, AnimateFXInterpolator.EASE),

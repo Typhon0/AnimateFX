@@ -30,14 +30,14 @@ public class FlipInY extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setRotate(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         getNode().getScene().setCamera(new PerspectiveCamera());
         getNode().setRotationAxis(Y_AXIS);
         setTimeline(new Timeline(

@@ -28,7 +28,7 @@ public class JackInTheBox extends AnimationFX {
     private Rotate rotate;
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setScaleX(1);
         getNode().setScaleZ(1);
         getNode().setScaleY(1);
@@ -38,7 +38,7 @@ public class JackInTheBox extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
          rotate = new Rotate(30, getNode().getBoundsInParent().getWidth() / 2, getNode().getBoundsInParent().getHeight());
         getNode().getTransforms().add(rotate);
         setTimeline(new Timeline(

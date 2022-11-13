@@ -24,14 +24,14 @@ public class BounceOutUp extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setTranslateY(0);
         getNode().setOpacity(1);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().opacityProperty(), 1, AnimateFXInterpolator.EASE)

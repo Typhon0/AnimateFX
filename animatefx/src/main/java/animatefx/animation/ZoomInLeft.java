@@ -26,7 +26,7 @@ public class ZoomInLeft extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setScaleX(1);
         getNode().setScaleY(1);
@@ -36,7 +36,7 @@ public class ZoomInLeft extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().translateXProperty(), -1000, Interpolator.SPLINE(0.55, 0.055, 0.675, 0.19)),

@@ -45,13 +45,13 @@ public class GlowText extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setTextFill(originalPaint);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline()); //will be populated at the end of constructor
     }
 
