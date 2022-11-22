@@ -29,7 +29,7 @@ public class LightSpeedOut extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         shear.setX(0);
         shear.setY(0);
         getNode().setOpacity(1);
@@ -38,7 +38,7 @@ public class LightSpeedOut extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         shear = new Shear();
         getNode().getTransforms().add(shear);
         setTimeline(new Timeline(

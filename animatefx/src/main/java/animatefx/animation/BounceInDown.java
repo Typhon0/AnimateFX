@@ -25,14 +25,14 @@ public class BounceInDown extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setTranslateY(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         this.setTimeline(new Timeline(
 
                 new KeyFrame(Duration.millis(0),

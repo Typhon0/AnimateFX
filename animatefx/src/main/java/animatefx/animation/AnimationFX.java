@@ -105,12 +105,12 @@ public abstract class AnimationFX {
      *
      * @return
      */
-    abstract AnimationFX resetNode();
+    protected abstract AnimationFX resetNode();
 
     /**
      * Function to initialize the timeline
      */
-    abstract void initTimeline();
+    protected abstract void initTimeline();
 
 
     public Timeline getTimeline() {

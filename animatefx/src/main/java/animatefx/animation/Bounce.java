@@ -34,7 +34,7 @@ public class Bounce extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(
                 new Timeline(
 

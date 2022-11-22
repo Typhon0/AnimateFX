@@ -25,14 +25,14 @@ public class Shake extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
 
         getNode().setTranslateX(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE)

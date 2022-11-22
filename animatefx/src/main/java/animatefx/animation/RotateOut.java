@@ -25,14 +25,14 @@ public class RotateOut extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setRotate(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         getNode().setRotationAxis(Rotate.Z_AXIS);
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),

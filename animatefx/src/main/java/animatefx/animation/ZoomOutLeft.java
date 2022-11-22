@@ -25,7 +25,7 @@ public class ZoomOutLeft extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         getNode().setScaleX(1);
         getNode().setScaleY(1);
@@ -35,7 +35,7 @@ public class ZoomOutLeft extends AnimationFX {
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().translateXProperty(), 0, AnimateFXInterpolator.EASE),

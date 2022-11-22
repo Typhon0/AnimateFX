@@ -27,14 +27,14 @@ public class RotateOutUpRight extends AnimationFX {
     }
 
     @Override
-    AnimationFX resetNode() {
+    protected AnimationFX resetNode() {
         getNode().setOpacity(1);
         rotate.setAngle(0);
         return this;
     }
 
     @Override
-    void initTimeline() {
+    protected void initTimeline() {
         rotate = new Rotate(0, getNode().getBoundsInLocal().getWidth(), getNode().getBoundsInLocal().getHeight());
         getNode().getTransforms().add(rotate);
         setTimeline(new Timeline(
