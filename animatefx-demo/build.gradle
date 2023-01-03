@@ -1,10 +1,11 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'java-library'
 }
 
-mainClassName = "animatefx.demo.Main"
+mainClassName  = "animatefx.demo.Main"
 
 repositories {
     mavenCentral()
