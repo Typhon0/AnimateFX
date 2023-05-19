@@ -136,11 +136,13 @@ public abstract class AnimationFX {
     public void setNode(Node node) {
         this.node = node;
         initTimeline();
-        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.equals(Animation.Status.STOPPED)) {
-                onFinished();
-            }
+        setAnimationStoppedListener();
+    }
 
+    protected void setAnimationStoppedListener() {
+        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals(Animation.Status.STOPPED))
+                onFinished();
         });
     }
 
