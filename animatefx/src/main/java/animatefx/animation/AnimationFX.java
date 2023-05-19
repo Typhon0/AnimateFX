@@ -1,5 +1,6 @@
 package animatefx.animation;
 
+import animatefx.modifier.Modifier;
 import javafx.animation.Animation;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -144,6 +145,19 @@ public abstract class AnimationFX {
             if (newValue.equals(Animation.Status.STOPPED))
                 onFinished();
         });
+    }
+
+    /**
+     * This method should be overwritten by classes that allow setting own
+     * animation modifiers like size, scale or travel. The standard implementation
+     * throws an UnsupportedOperationException
+     * @param modifier An implementation of the Modifier interface
+     * @return
+     */
+    public AnimationFX setAnimationModifier(Modifier modifier) {
+        throw new UnsupportedOperationException(
+                getClass().getName() + " doesn't support modifying the animation. Feel free to contribute to the project, if you want that support."
+        );
     }
 
     public AnimationFX getNextAnimation() {
