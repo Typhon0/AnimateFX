@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /**
  * @author Loïc Sculier aka typhon0
  */
-public class SlideInUp extends AnimationFX {
+public class SlideInUp extends SlideAnimation {
 
     /**
      * Create new SlideInUp
@@ -32,9 +32,14 @@ public class SlideInUp extends AnimationFX {
 
     @Override
     protected void initTimeline() {
+        Number slideBy = this.slideBy; // protected attribute from SlideAnimation
+
+        if (slideBy == null)
+            slideBy = getNode().getBoundsInParent().getHeight();
+
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
-                        new KeyValue(getNode().translateYProperty(), getNode().getBoundsInParent().getHeight(), AnimateFXInterpolator.EASE)
+                        new KeyValue(getNode().translateYProperty(), slideBy, AnimateFXInterpolator.EASE)
                 ),
                 new KeyFrame(Duration.millis(1000),
                         new KeyValue(getNode().translateYProperty(), 0, AnimateFXInterpolator.EASE)

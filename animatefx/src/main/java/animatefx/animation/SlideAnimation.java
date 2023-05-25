@@ -4,6 +4,9 @@ import animatefx.modifier.Modifier;
 import animatefx.modifier.SlideModifier;
 import javafx.scene.Node;
 
+/**
+ * @author Dominik Müka aka 41zu
+ */
 public abstract class SlideAnimation extends AnimationFX {
 
     protected Number slideBy;
