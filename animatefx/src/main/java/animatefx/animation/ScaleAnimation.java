@@ -19,7 +19,7 @@ public abstract class ScaleAnimation extends AnimationFX {
     }
 
     @Override
-    public AnimationFX setAnimationModifier(Modifier modifier) {
+    public AnimationFX applyAnimationModifier(Modifier modifier) {
         if (modifier == null)
             throw new NullPointerException("modifier cannot be null");
 

@@ -154,7 +154,7 @@ public abstract class AnimationFX {
      * @param modifier An implementation of the Modifier interface
      * @return
      */
-    public AnimationFX setAnimationModifier(Modifier modifier) {
+    public AnimationFX applyAnimationModifier(Modifier modifier) {
         throw new UnsupportedOperationException(
                 getClass().getName() + " doesn't support modifying the animation. Feel free to contribute to the project, if you want that support."
         );
