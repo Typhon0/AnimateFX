@@ -32,10 +32,14 @@ public class SlideInLeft extends SlideAnimation {
 
     @Override
     protected void initTimeline() {
-        Number slideBy = this.slideBy; // protected attribute from SlideAnimation
+        Double slideBy = this.slideBy; // protected attribute from SlideAnimation
 
         if (slideBy == null)
-            slideBy = -getNode().getBoundsInParent().getWidth();
+            slideBy = getNode().getBoundsInParent().getWidth();
+
+        // negate value if positive
+        if (slideBy > 0.0)
+            slideBy = -slideBy;
 
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
