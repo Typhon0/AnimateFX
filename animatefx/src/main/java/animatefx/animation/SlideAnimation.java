@@ -9,7 +9,7 @@ import javafx.scene.Node;
  */
 public abstract class SlideAnimation extends AnimationFX {
 
-    protected Number slideBy;
+    protected Double slideBy;
 
     public SlideAnimation(Node node) {
         super(node);
@@ -29,7 +29,7 @@ public abstract class SlideAnimation extends AnimationFX {
             throw new IllegalArgumentException("The modifier instance must be from type SlideModifier, is: " + modifier.getClass().getName());
 
         // The attribute gets checked for null in the initTimeline method
-        slideBy = ((SlideModifier) modifier).getSlideBy();
+        slideBy = ((SlideModifier) modifier).getSlideBy().doubleValue();
 
         initTimeline();
         setAnimationStoppedListener();
