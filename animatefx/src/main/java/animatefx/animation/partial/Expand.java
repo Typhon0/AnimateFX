@@ -3,6 +3,7 @@ package animatefx.animation.partial;
 import animatefx.animation.AnimateFXInterpolator;
 import animatefx.animation.AnimationFX;
 import animatefx.animation.ScaleAnimation;
+import animatefx.modifier.IllegalModifierException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -49,6 +50,9 @@ public class Expand extends ScaleAnimation {
 
         if (endScale == null)
             endScale = 1.05;
+
+        if (beginScale > endScale)
+            throw new IllegalModifierException("beginScale must be smaller than endScale. Consider using the Contract animation.");
 
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
