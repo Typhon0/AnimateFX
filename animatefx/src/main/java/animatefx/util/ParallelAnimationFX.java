@@ -17,8 +17,6 @@ public class ParallelAnimationFX {
 
     private ObjectProperty<Node> node;
 
-    private boolean reset;
-
     /**
      * The node property
      *
@@ -35,18 +33,15 @@ public class ParallelAnimationFX {
 
     public ParallelAnimationFX(Node node) {
         nodeProperty().set(node);
-        reset = false;
     }
 
     public ParallelAnimationFX(Node node, AnimationFX... animations) {
         nodeProperty().set(node);
         getAnimation().setAll(animations);
-        reset = false;
     }
 
     public ParallelAnimationFX(AnimationFX... animations) {
         getAnimation().setAll(animations);
-        reset = false;
     }
 
     public ParallelAnimationFX() {
@@ -125,7 +120,7 @@ public class ParallelAnimationFX {
      * @param value true to reset
      */
     public void setResetOnFinished(boolean value) {
-        this.reset = value;
+
     }
 }
 

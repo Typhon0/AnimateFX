@@ -55,12 +55,8 @@ publishing {
     publications {
         release(MavenPublication) {
             from components.java
-            artifact sourcesJar {
-                classifier "sources"
-            }
-            artifact javadocJar {
-                classifier "javadoc"
-            }
+            artifact sourcesJar
+            artifact javadocJar
             groupId = "io.github.typhon0"
             artifactId = "AnimateFX"
             version = project.version
