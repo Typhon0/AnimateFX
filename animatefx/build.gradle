@@ -11,9 +11,10 @@ repositories {
 
 group = rootProject.group
 version = rootProject.version
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 dependencies {
+
 }
 
 javafx {
