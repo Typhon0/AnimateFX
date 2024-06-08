@@ -1,8 +1,8 @@
 [![AnimateFX CI](https://github.com/Typhon0/AnimateFX/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Typhon0/AnimateFX/actions/workflows/ci.yml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.typhon0/AnimateFX/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.typhon0/AnimateFX)
 [![javadoc](https://javadoc.io/badge2/io.github.typhon0/AnimateFX/javadoc.svg)](https://javadoc.io/doc/io.github.typhon0/AnimateFX)
+[![JFXCentral](https://img.shields.io/badge/Find_me_on-JFXCentral-blue?logo=googlechrome&logoColor=white)](https://www.jfx-central.com/libraries/animatefx)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Join the chat at https://gitter.im/AnimateFX/Lobby](https://badges.gitter.im/AnimateFX/Lobby.svg)](https://gitter.im/AnimateFX/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # AnimateFX
 
