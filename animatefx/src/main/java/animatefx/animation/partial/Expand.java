@@ -2,6 +2,8 @@ package animatefx.animation.partial;
 
 import animatefx.animation.AnimateFXInterpolator;
 import animatefx.animation.AnimationFX;
+import animatefx.animation.ScaleAnimation;
+import animatefx.modifier.IllegalModifierException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -13,11 +15,7 @@ import javafx.util.Duration;
  *
  * @author Dominik Müka aka 41zu
  */
-public class Expand extends AnimationFX {
-
-    private boolean initialzed;
-    private Number beginScale;
-    private Number endScale;
+public class Expand extends ScaleAnimation {
 
     /**
      * Expands the Node by an defined scale.<br>
@@ -31,46 +29,30 @@ public class Expand extends AnimationFX {
         super(node);
     }
 
-    /*
-     * we have to initialize the class variables in this
-     * method, because otherwise they would be initialized
-     * after the constructor and they would be null in the
-     * initTimeline method.
-     */
-    private void initVars() {
-        beginScale = 1.0d;
-        endScale = 1.05d;
-
-        initialzed = true;
-    }
-
-    public Expand setBeginScale(Number beginScale) {
-        this.beginScale = beginScale;
-        rebuildTimeline();
-        return this;
-    }
-
-    public Expand setEndScale(Number endScale) {
-        this.endScale = endScale;
-        rebuildTimeline();
-        return this;
-    }
-
     /**
      * resets the Node to the beginScale value
      */
     @Override
     protected AnimationFX resetNode() {
-        getNode().setScaleX(beginScale.doubleValue());
-        getNode().setScaleY(beginScale.doubleValue());
-        getNode().setScaleZ(beginScale.doubleValue());
+        getNode().setScaleX(beginScale);
+        getNode().setScaleY(beginScale);
+        getNode().setScaleZ(beginScale);
         return this;
     }
 
     @Override
     protected void initTimeline() {
-        if (!initialzed)
-            initVars();
+        Double beginScale = this.beginScale;
+        Double endScale = this.endScale;
+
+        if (beginScale == null)
+            beginScale = 1.0;
+
+        if (endScale == null)
+            endScale = 1.05;
+
+        if (beginScale > endScale)
+            throw new IllegalModifierException("beginScale must be smaller than endScale. Consider using the Contract animation.");
 
         setTimeline(new Timeline(
                 new KeyFrame(Duration.millis(0),
@@ -84,12 +66,5 @@ public class Expand extends AnimationFX {
                         new KeyValue(getNode().scaleZProperty(), endScale, AnimateFXInterpolator.EASE)
                 )
         ));
-    }
-
-    /*
-     * rebuild the timeline with the new variable values
-     */
-    private void rebuildTimeline() {
-        setNode(getNode());
     }
 }

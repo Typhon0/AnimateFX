@@ -15,14 +15,10 @@ import javafx.util.Duration;
 public class GlowText extends AnimationFX {
 
     private final Paint originalPaint;
-    private final Paint colorA;
-    private final Paint colorB;
 
     public GlowText(Labeled node, Paint colorA, Paint colorB) {
         super(node);
         this.originalPaint = getNode().textFillProperty().get();
-        this.colorA = colorA;
-        this.colorB = colorB;
         getTimeline().getKeyFrames().addAll(
                 new KeyFrame(Duration.millis(0),
                         new KeyValue(getNode().textFillProperty(), colorA)),
@@ -35,8 +31,6 @@ public class GlowText extends AnimationFX {
 
     public GlowText(Paint originalPaint, Paint colorA, Paint colorB) {
         this.originalPaint = originalPaint;
-        this.colorA = colorA;
-        this.colorB = colorB;
     }
 
     @Override

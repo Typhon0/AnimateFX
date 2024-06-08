@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
     id 'maven-publish'
     id 'signing'
 }
@@ -11,9 +11,10 @@ repositories {
 
 group = rootProject.group
 version = rootProject.version
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 dependencies {
+
 }
 
 javafx {
@@ -55,12 +56,8 @@ publishing {
     publications {
         release(MavenPublication) {
             from components.java
-            artifact sourcesJar {
-                classifier "sources"
-            }
-            artifact javadocJar {
-                classifier "javadoc"
-            }
+            artifact sourcesJar
+            artifact javadocJar
             groupId = "io.github.typhon0"
             artifactId = "AnimateFX"
             version = project.version
