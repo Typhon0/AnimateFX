@@ -27,7 +27,7 @@ plugins {
 }
 
 dependencies {
-    implementation 'io.github.typhon0:AnimateFX:1.3.0'
+    implementation 'io.github.typhon0:AnimateFX:1.3.1'
 }
 ```
 
@@ -37,7 +37,7 @@ dependencies {
 <dependency>
   <groupId>io.github.typhon0</groupId>
   <artifactId>AnimateFX</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.github.typhon0:AnimateFX:1.3.0-SNAPSHOT'
+    implementation 'io.github.typhon0:AnimateFX:1.3.1-SNAPSHOT'
 }
 ```
 
@@ -70,7 +70,7 @@ dependencies {
     <dependency>
         <groupId>io.github.typhon0</groupId>
         <artifactId>AnimateFX</artifactId>
-        <version>1.3.0-SNAPSHOT</version>
+        <version>1.3.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
