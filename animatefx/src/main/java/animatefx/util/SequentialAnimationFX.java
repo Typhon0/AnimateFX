@@ -77,19 +77,20 @@ public class SequentialAnimationFX {
         }
     }
 
-    /**
-     * Play the animations
-     */
     public void play() {
+        if (animations.isEmpty()) {
+            status = Animation.Status.RUNNING;
+            return;
+        }
         initAnimations();
         getAnimation().get(0).play();
         status = Animation.Status.RUNNING;
     }
 
-    /**
-     * Initialize which animation to play after another
-     */
     private void initAnimations() {
+        if (animations.isEmpty()) {
+            return;
+        }
         for (int i = 0; i < getAnimation().size() - 1; i++) {
             if (nodeProperty().get() != null) {
                 if (getAnimation().get(i).getNode() == null) {

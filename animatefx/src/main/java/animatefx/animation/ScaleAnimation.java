@@ -31,8 +31,10 @@ public abstract class ScaleAnimation extends AnimationFX {
         beginScale = sm.getBeginScale().doubleValue();
         endScale = sm.getEndScale().doubleValue();
 
-        initTimeline();
-        setAnimationStoppedListener();
+        if (getNode() != null) {
+            initTimeline();
+            setAnimationStoppedListener();
+        }
         return this;
     }
 }

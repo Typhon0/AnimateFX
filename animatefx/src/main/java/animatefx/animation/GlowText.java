@@ -14,23 +14,44 @@ import javafx.util.Duration;
  */
 public class GlowText extends AnimationFX {
 
-    private final Paint originalPaint;
+    private Paint originalPaint;
+    private Paint colorA;
+    private Paint colorB;
 
     public GlowText(Labeled node, Paint colorA, Paint colorB) {
-        super(node);
-        this.originalPaint = getNode().textFillProperty().get();
-        getTimeline().getKeyFrames().addAll(
-                new KeyFrame(Duration.millis(0),
-                        new KeyValue(getNode().textFillProperty(), colorA)),
-                new KeyFrame(Duration.millis(500),
-                        new KeyValue(getNode().textFillProperty(), colorB)),
-                new KeyFrame(Duration.millis(1000),
-                        new KeyValue(getNode().textFillProperty(), colorA))
-        );
+        this.colorA = colorA;
+        this.colorB = colorB;
+        setNode(node);
     }
 
     public GlowText(Paint originalPaint, Paint colorA, Paint colorB) {
         this.originalPaint = originalPaint;
+        this.colorA = colorA;
+        this.colorB = colorB;
+    }
+
+    public Paint getColorA() {
+        return colorA;
+    }
+
+    public GlowText setColorA(Paint colorA) {
+        this.colorA = colorA;
+        if (getNode() != null) {
+            initTimeline();
+        }
+        return this;
+    }
+
+    public Paint getColorB() {
+        return colorB;
+    }
+
+    public GlowText setColorB(Paint colorB) {
+        this.colorB = colorB;
+        if (getNode() != null) {
+            initTimeline();
+        }
+        return this;
     }
 
     @Override
@@ -46,7 +67,24 @@ public class GlowText extends AnimationFX {
 
     @Override
     protected void initTimeline() {
-        setTimeline(new Timeline()); //will be populated at the end of constructor
+        Timeline timeline = new Timeline();
+        setTimeline(timeline);
+        if (getNode() == null || colorA == null || colorB == null) {
+            return;
+        }
+
+        if (originalPaint == null) {
+            originalPaint = getNode().textFillProperty().get();
+        }
+
+        timeline.getKeyFrames().addAll(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(getNode().textFillProperty(), colorA)),
+                new KeyFrame(Duration.millis(500),
+                        new KeyValue(getNode().textFillProperty(), colorB)),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(getNode().textFillProperty(), colorA))
+        );
     }
 
 }

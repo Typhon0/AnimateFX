@@ -24,6 +24,14 @@ public abstract class AnimationFX {
     private Node node;
     private AnimationFX nextAnimation;
     private boolean hasNextAnimation;
+    private boolean explicitlyStopped = false;
+    private final javafx.beans.value.ChangeListener<Animation.Status> statusListener = (observable, oldValue, newValue) -> {
+        if (newValue.equals(Animation.Status.STOPPED)) {
+            if (!explicitlyStopped) {
+                onFinished();
+            }
+        }
+    };
 
     /**
      * Create a new animation
@@ -88,6 +96,7 @@ public abstract class AnimationFX {
      * Play the animation
      */
     public void play() {
+        explicitlyStopped = false;
         timeline.play();
     }
 
@@ -97,6 +106,7 @@ public abstract class AnimationFX {
      * @return
      */
     public AnimationFX stop() {
+        explicitlyStopped = true;
         timeline.stop();
         return this;
     }
@@ -119,7 +129,12 @@ public abstract class AnimationFX {
     }
 
     public void setTimeline(Timeline timeline) {
+        if (this.timeline != null) {
+            this.timeline.stop();
+            this.timeline.statusProperty().removeListener(statusListener);
+        }
         this.timeline = timeline;
+        setAnimationStoppedListener();
     }
 
     public boolean isResetOnFinished() {
@@ -141,10 +156,10 @@ public abstract class AnimationFX {
     }
 
     protected void setAnimationStoppedListener() {
-        timeline.statusProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.equals(Animation.Status.STOPPED))
-                onFinished();
-        });
+        if (timeline != null) {
+            timeline.statusProperty().removeListener(statusListener);
+            timeline.statusProperty().addListener(statusListener);
+        }
     }
 
     /**

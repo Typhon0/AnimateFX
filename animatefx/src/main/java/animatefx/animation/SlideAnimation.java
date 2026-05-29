@@ -31,8 +31,10 @@ public abstract class SlideAnimation extends AnimationFX {
         // The attribute gets checked for null in the initTimeline method
         slideBy = ((SlideModifier) modifier).getSlideBy().doubleValue();
 
-        initTimeline();
-        setAnimationStoppedListener();
+        if (getNode() != null) {
+            initTimeline();
+            setAnimationStoppedListener();
+        }
         return this;
     }
 }

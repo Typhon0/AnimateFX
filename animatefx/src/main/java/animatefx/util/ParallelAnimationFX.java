@@ -72,12 +72,12 @@ public class ParallelAnimationFX {
         }
     }
 
-    /**
-     * Play the animations
-     */
     public void play() {
+        if (animations.isEmpty()) {
+            status = Animation.Status.RUNNING;
+            return;
+        }
         initAnimations();
-        getAnimation().get(0).play();
         status = Animation.Status.RUNNING;
     }
 
@@ -114,13 +114,10 @@ public class ParallelAnimationFX {
         return status;
     }
 
-    /**
-     * Set if the node have to reset at the end
-     *
-     * @param value true to reset
-     */
     public void setResetOnFinished(boolean value) {
-
+        for (AnimationFX animation : animations) {
+            animation.setResetOnFinished(value);
+        }
     }
 }
 
