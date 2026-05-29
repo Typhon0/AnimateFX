@@ -56,9 +56,10 @@ jobs:
     - name: Validate Gradle wrapper
       uses: gradle/actions/wrapper-validation@v4
 
-    - name: Build with Gradle
+    - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
-      with:
-        arguments: build
+
+    - name: Build with Gradle
+      run: ./gradlew build
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
